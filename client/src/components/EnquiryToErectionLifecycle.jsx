@@ -10,11 +10,7 @@ import {
   HardHat, 
   ChevronRight, 
   CheckCircle2, 
-  ArrowRight,
-  Sparkles,
-  Layers,
-  Clock,
-  AlertCircle
+  Sparkles
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -29,20 +25,21 @@ export default function EnquiryToErectionLifecycle({ onOpenConsultation }) {
       title: 'Structural Enquiry & Rapid Cost Estimation',
       subtitle: 'From Client RFQ to Accurate Tonnage BOQ in Under 4 Hours',
       icon: <FileSpreadsheet size={20} />,
-      color: '#2563EB',
+      color: '#8B5CF6',
+      bgLight: '#F5F3FF',
+      border: '#DDD6FE',
       badge: 'STAGE 1: SALES & ESTIMATION',
-      description: 'Generic ERPs require weeks of manual spreadsheet work to price complex PEB portal frames. Keshav Info ingests preliminary architectural sketches, imports MBS or Excel takeoffs, calculates exact tonnage breakdown by section type (built-up, hot-rolled, cold-formed purlins, sheeting), and factors current steel market prices with live freight formulas.',
+      description: 'Ingests architectural sketches, MBS models, and Excel takeoffs to calculate automated tonnage breakdowns by section type with live steel market price indexes and freight formulas.',
       capabilities: [
-        'Multi-section tonnage estimation: Built-up plates, HR sections, cold-formed Z/C purlins',
-        'Dynamic steel rate fluctuation buffers (Tata / JSW base rate + freight index)',
-        'Automated client quotation generation with revision tracking (Q0 to Q5)',
-        'Built-in commercial margin and crane freight cost calculations'
+        'Multi-section tonnage BOQ: Built-up plates, HR sections & purlins',
+        'Dynamic steel rate buffers tied to Tata/JSW base + freight index',
+        'Instant client quotation generation with revision tracking (Q0–Q5)'
       ],
       bottleneckSolved: {
-        before: 'Manual Excel takeoffs taking 3-5 days with 6-8% estimation errors and outdated steel rates.',
-        after: 'Automated 4-hour quote turnaround with 99.4% tonnage accuracy and live coil pricing.'
+        before: 'Manual Excel takeoffs taking 3-5 days with 6-8% estimation errors.',
+        after: 'Automated 4-hour quote turnaround with 99.4% tonnage accuracy.'
       },
-      telemetrySnippet: 'QUOTE #EST-2026-88 &bull; 840 MT Industrial Portal Frame &bull; Margin: 14.8% &bull; Approved'
+      telemetrySnippet: 'QUOTE #EST-2026-88 • 840 MT Portal Frame • 99.4% Accuracy'
     },
     {
       id: 'design',
@@ -51,20 +48,21 @@ export default function EnquiryToErectionLifecycle({ onOpenConsultation }) {
       title: 'Tekla Structures .NC1 & 3D BIM Sync',
       subtitle: 'Automated Delta-Diffing Between Client Drawing Revisions (R0 -> R4)',
       icon: <Compass size={20} />,
-      color: '#0284C7',
+      color: '#10B981',
+      bgLight: '#ECFDF5',
+      border: '#A7F3D0',
       badge: 'STAGE 2: ENGINEERING & DETAILING',
-      description: 'When engineering consultants issue drawing revisions mid-fabrication, traditional plants suffer massive scrap when outdated cut-lists remain on the shop floor. Keshav Info integrates directly with Tekla Structures via .NC1 and .IFC model parser, automatically highlighting changed part marks and instantly locking plasma tables.',
+      description: 'Integrates directly with Tekla Structures via .NC1 & .IFC parsers, diffing client drawing revisions in real time and auto-freezing plasma tables for changed part marks.',
       capabilities: [
-        'Direct Tekla .NC1 and .IFC import without manual data entry',
-        'Automated 3D model revision diffing: detects altered hole pitches, flange thicknesses, or lengths',
-        'Automatic freeze signal sent to CNC cutting bays for revised part marks',
-        'Instant multi-level BOM explosion down to gusset plates, stiffeners, and splice plates'
+        'Direct Tekla .NC1 and .IFC model import with zero manual data entry',
+        'Automatic 3D revision diffing: identifies altered hole pitches & marks',
+        'Instant freeze signal sent directly to CNC cutting bays for revised marks'
       ],
       bottleneckSolved: {
-        before: 'Consultant changes drawing; old columns get welded and scrapped, wasting ₹4.5 Lakhs per bay.',
-        after: 'Instant digital lock on revised parts; cutting operators receive live red alerts on tablet.'
+        before: 'Consultant changes drawing; old columns get welded and scrapped (₹4.5L loss).',
+        after: 'Instant digital lock on revised parts; operators receive live red alerts on tablet.'
       },
-      telemetrySnippet: 'TEKLA REV 03 INGESTED &bull; 1,248 Part Marks Synced &bull; 42 Marks Auto-Frozen on Shop Floor'
+      telemetrySnippet: 'TEKLA REV 03 INGESTED • 1,248 Part Marks Synced • 42 Frozen'
     },
     {
       id: 'inward',
@@ -73,20 +71,21 @@ export default function EnquiryToErectionLifecycle({ onOpenConsultation }) {
       title: 'Electronic Weighbridge & Mill MTC Pedigree',
       subtitle: 'Gross-to-Tare Automated Capture & 100% Heat Number Traceability',
       icon: <Scale size={20} />,
-      color: '#D97706',
+      color: '#F97316',
+      bgLight: '#FFF7ED',
+      border: '#FED7AA',
       badge: 'STAGE 3: RAW MATERIAL INWARD',
-      description: 'Raw steel represents 65-72% of plant costs. Keshav Info connects directly to electronic weighbridges via RS232 serial and IP cameras, recording gross, tare, and net weights without human tampering. Every incoming coil and heavy plate is tied to its certified Tata/JSW Mill Test Certificate (MTC) and assigned a unique weather-proof QR code.',
+      description: 'Direct RS232 electronic weighbridge connection with IP cameras. Locks gross, tare, and net weights to certified Tata/JSW Mill Test Certificates (MTC) with QR tags.',
       capabilities: [
-        'Direct hardware drivers for Avery Weigh-Tronix, Essae, and Rice Lake electronic bridges',
+        'Direct hardware drivers for Avery Weigh-Tronix, Essae, and Rice Lake',
         'ANPR truck license plate capture + weighbridge CCTV snapshot archive',
-        'Mill Test Certificate (MTC) verification against IS 2062 Grade E250 / E350 BR standards',
-        'Digital QR coil tag generation with chemical composition and mill heat number'
+        'MTC verification against IS 2062 Grade E250 / E350 BR standards'
       ],
       bottleneckSolved: {
-        before: 'Paper weighbridge slips and manual registers allowing 1.5% - 2.0% steel weight pilferage.',
-        after: 'Direct serial port data lock; weighbridge operator cannot manipulate weights or heat numbers.'
+        before: 'Paper weighbridge slips and manual registers allowing 1.5% - 2.0% pilferage.',
+        after: 'Direct serial port lock; weights and heat numbers cannot be manipulated.'
       },
-      telemetrySnippet: 'WEIGHBRIDGE INWARD #WB-4910 &bull; Mother Coil JSW-9821 (28.45 MT) &bull; Heat: HT-8812-C Verified'
+      telemetrySnippet: 'WEIGHBRIDGE INWARD #WB-4910 • 28.45 MT • Heat: HT-8812-C Verified'
     },
     {
       id: 'nesting',
@@ -95,20 +94,21 @@ export default function EnquiryToErectionLifecycle({ onOpenConsultation }) {
       title: 'Plate Nesting & Raw Coil Slit Yield Optimizer',
       subtitle: 'Slit Yields Above 97% & Permanent QR Remnant Reservation',
       icon: <Scissors size={20} />,
-      color: '#059669',
+      color: '#475569',
+      bgLight: '#F1F5F9',
+      border: '#CBD5E1',
       badge: 'STAGE 4: CUTTING & SLITTING OPTIMIZER',
-      description: 'Generic software treats non-standard cut plate remnants as floor scrap. Keshav Info runs multi-order 2D cutting stock algorithms for CNC plasma cutting and HR coil slitting lines. Non-standard L-shaped remnants are photographed, dimensionally tagged in the database, and reserved for upcoming base stiffeners.',
+      description: 'Multi-order 2D cutting stock algorithms for CNC plasma and coil slitting lines. Achieves slit yields above 97% and tags irregular offcuts in a digital remnant yard.',
       capabilities: [
-        '2D geometric cutting stock optimization across simultaneous client projects',
-        'Coil slitting pattern calculator for purlins (C/Z sections) reducing edge trim scrap',
-        'Remnant QR tagging: irregular plate pieces saved with exact dimensions in digital rack',
-        'Kerf allowance and CNC lead-in/lead-out optimization for Hypertherm plasma tables'
+        '2D geometric cutting stock optimization across simultaneous projects',
+        'Coil slitting pattern calculator for purlins reducing edge trim scrap',
+        'Remnant QR tagging: irregular offcuts auto-nested into upcoming brackets'
       ],
       bottleneckSolved: {
-        before: 'Fabricators discard 1.2 MT plate remnants as floor scrap, losing ₹85,000 per mother plate.',
-        after: 'Remnant tagged in digital yard; algorithm automatically nests brackets into saved offcuts.'
+        before: 'Discarding 1.2 MT plate remnants as floor scrap (₹85,000 lost per plate).',
+        after: 'Remnant tagged in digital yard; algorithm auto-nests brackets into saved offcuts.'
       },
-      telemetrySnippet: 'NESTING JOB #NST-104 &bull; 12mm Plate Yield: 96.8% &bull; Remnant REM-12-88 Archived (1.14 MT)'
+      telemetrySnippet: 'NESTING JOB #NST-104 • 12mm Plate Yield: 96.8% • Remnant Archived'
     },
     {
       id: 'shopfloor',
@@ -117,20 +117,21 @@ export default function EnquiryToErectionLifecycle({ onOpenConsultation }) {
       title: '8-Stage Physical Bay Control & Barcode Gating',
       subtitle: 'From CNC Cutting Table to Fit-Up, SAW Welding & Sa 2.5 Shot Blast',
       icon: <Cpu size={20} />,
-      color: '#2563EB',
+      color: '#F59E0B',
+      bgLight: '#FFFBEB',
+      border: '#FDE68A',
       badge: 'STAGE 5: SHOP-FLOOR FABRICATION',
-      description: 'Fabrication bays move thousands of tonnes per month. Keshav Info enforces strict physical barcode stage gates on rugged shop tablets: 1. CNC Cutting &rarr; 2. Tacking & Fit-up &rarr; 3. Submerged Arc Welding (SAW) &rarr; 4. Web Straightening &rarr; 5. Drilling & Cleats &rarr; 6. Sa 2.5 Shot Blasting &rarr; 7. Primer/Paint &rarr; 8. Dispatch Staging.',
+      description: 'Enforces strict 8-stage barcode gates across fabrication bays—from CNC cutting and SAW welding to Sa 2.5 shot blasting and painting. Prevents uninspected members from advancing.',
       capabilities: [
-        'Bay supervisor tablet interface with high-contrast glove-friendly buttons',
-        'Real-time machine tracking: SAW gantry welders, shearing lines, and radial drills',
-        'Sub-assembly fit-up checks against Tekla 3D dimensional tolerances (&plusmn;2mm)',
-        'Live Bay OEE and bottleneck heat-map displayed on plant overhead monitors'
+        'Rugged shop supervisor tablet UI with high-contrast, glove-friendly buttons',
+        'Real-time machine tracking for SAW gantry welders and radial drills',
+        'Sub-assembly fit-up checks against Tekla 3D tolerances (±2mm)'
       ],
       bottleneckSolved: {
-        before: 'Unfinished beams bypass welding or blasting; discovered only during final loading.',
-        after: 'Barcoded gate pass required to transfer beams between bays; zero uninspected members pass.'
+        before: 'Unfinished beams bypass welding or blasting, discovered only at loading.',
+        after: 'Barcoded gate pass required between bays; zero uninspected members pass.'
       },
-      telemetrySnippet: 'BAY 02 SAW WELDER &bull; Beam MCL-01 Completed &bull; Weld Flux: AWS F7A2-EM12K &bull; Passed to Bay 03'
+      telemetrySnippet: 'BAY 02 SAW WELDER • Beam MCL-01 Passed • Flux AWS F7A2-EM12K'
     },
     {
       id: 'qc',
@@ -139,42 +140,44 @@ export default function EnquiryToErectionLifecycle({ onOpenConsultation }) {
       title: 'NABL Quality Compliance & Metallurgical Records',
       subtitle: 'Digital Ultrasonic UT, MPI, DFT Paint Logs & Contractor Payables Lock',
       icon: <ShieldCheck size={20} />,
-      color: '#7C3AED',
+      color: '#06B6D4',
+      bgLight: '#ECFEFF',
+      border: '#A5F3FC',
       badge: 'STAGE 6: QUALITY ASSURANCE & AUDIT',
-      description: 'Major EPC developers (L&T, Tata Projects) withhold up to 15% retention money until every beam has an audited quality dossier. Keshav Info replaces paper inspection sheets with digital NABL check-sheets. Welder piece-rate payments are cryptographically locked until the quality inspector signs off ultrasonic weld testing.',
+      description: 'Replaces paper inspection with digital NABL check-sheets for Ultrasonic (UT) and Magnetic Particle testing. Locks contractor payables until QC signs off compliance.',
       capabilities: [
-        '100% Ultrasonic Testing (UT) and Magnetic Particle Inspection (MPI) digital records',
-        'Dry Film Thickness (DFT) paint log capture with Elcometer gauge integration',
-        'Welder Performance Qualification (WPQR) & Welding Procedure Specification (WPS) logs',
-        'Single-click generation of 200+ page client compliance dossiers for retention release'
+        '100% Ultrasonic Testing (UT) & Magnetic Particle (MPI) digital records',
+        'Dry Film Thickness (DFT) paint log capture with Elcometer gauge link',
+        'Single-click generation of 200+ page compliance dossiers for retention release'
       ],
       bottleneckSolved: {
-        before: 'Contractors paid on fabricated tonnage before ultrasonic tests, leading to defective welds.',
-        after: 'Payables locked in software; contractor cannot claim ₹/kg until QC digitally signs off UT.'
+        before: 'Contractors paid before ultrasonic tests, leading to defective welds.',
+        after: 'Payables locked in software; contractors cannot claim until QC approves UT.'
       },
-      telemetrySnippet: 'QC SIGN-OFF #UT-8902 &bull; 100% Joint Penetration Approved &bull; Welder W-04 Certified'
+      telemetrySnippet: 'QC SIGN-OFF #UT-8902 • 100% Joint Penetration Approved'
     },
     {
       id: 'dispatch',
       stepNum: '07',
       shortTitle: 'Sequence Dispatch',
       title: 'Sequence-Wise Trailer Loading & 90-Sec Gate Pass',
-      subtitle: 'Foundations & Columns First &bull; Zero Site Crane Detention Delays',
+      subtitle: 'Foundations & Columns First • Zero Site Crane Detention Delays',
       icon: <Truck size={20} />,
-      color: '#059669',
+      color: '#EC4899',
+      bgLight: '#FDF2F8',
+      border: '#FBCFE8',
       badge: 'STAGE 7: LOGISTICS & SEQUENCE DISPATCH',
-      description: 'Sending rafters and roof sheeting to a site before base columns and anchor bolts halts site cranes and triggers massive detention claims (₹35,000/day). Keshav Info forces trailers to load strictly in site erection sequence, auto-verifying axle load limits, weighbridge gross re-checks, and instant GST E-Way Bill generation in 90 seconds.',
+      description: 'Validates trailer loading strictly in site erection sequence (foundations first). Computes axle loads, conducts weighbridge re-checks, and auto-generates E-Way Bills in 90 seconds.',
       capabilities: [
-        'Erection-sequence trailer packing optimizer (Foundation &rarr; Columns &rarr; Rafters &rarr; Purlins)',
-        'Axle load distribution calculator preventing RTO highway overloading penalties',
-        'Direct GST E-Way Bill and tax invoice generation in under 90 seconds',
-        'Barcoded shipping packing lists attached to trailer manifests for site security'
+        'Erection-sequence trailer packing (Foundation → Columns → Rafters)',
+        'Axle load distribution calculator preventing highway overloading penalties',
+        'Direct GST E-Way Bill and tax invoice generation in under 90 seconds'
       ],
       bottleneckSolved: {
-        before: 'Site crane sits idle because trailer arrived with rafters instead of base columns.',
-        after: 'Software prevents gate pass generation unless trailer payload matches foundation sequence.'
+        before: 'Trailers arrive out of sequence, stranding site cranes (₹35,000/day detention).',
+        after: 'Software prevents gate pass unless trailer payload matches foundation sequence.'
       },
-      telemetrySnippet: 'DISPATCH TRAILER #GJ-15-X-9902 &bull; Payload: 26.85 MT &bull; Sequence Validated &bull; E-Way Bill Active'
+      telemetrySnippet: 'DISPATCH #GJ-15-X-9902 • Payload: 26.85 MT • E-Way Bill Active'
     },
     {
       id: 'erection',
@@ -183,20 +186,21 @@ export default function EnquiryToErectionLifecycle({ onOpenConsultation }) {
       title: 'Offline Field Mobile PWA & Progressive RA Billing',
       subtitle: 'Trailer Inward Scanning, Anchor Bolt Verification & Erector Payables',
       icon: <HardHat size={20} />,
-      color: '#D97706',
+      color: '#3B82F6',
+      bgLight: '#EFF6FF',
+      border: '#BFDBFE',
       badge: 'STAGE 8: SITE ERECTION & BILLING',
-      description: 'ErectSync™ brings complete visibility to remote, dusty construction yards. Site engineers scan trailer QR codes upon arrival, inspect foundation anchor bolt center-to-center pitch, verify torque wrench settings, and file geotagged daily progress reports (DPR). Tonnage erected links directly to client progressive RA billing.',
+      description: 'Offline-first field mobile PWA for construction yards. Site engineers scan trailer QR codes, verify foundation anchor bolts, and file DPRs linking erected tonnage to progressive RA billing.',
       capabilities: [
-        'Offline-first IndexedDB architecture functioning without 4G internet connection',
-        'Trailer receiving QR scanner matching dispatched manifests against physical bolts',
-        'Foundation anchor bolt diagonal check-sheet (&plusmn;2mm IS 800 tolerance)',
-        'Progressive RA billing calculator linking erected tonnage to milestone cash inflows'
+        'Offline-first IndexedDB architecture functioning without 4G mobile signal',
+        'Trailer receiving QR scanner matching manifests against physical members',
+        'Progressive RA billing calculator linking erected tonnage to cash milestones'
       ],
       bottleneckSolved: {
-        before: 'Site delays blamed on factory dispatch; weeks of WhatsApp dispute over missing parts.',
-        after: 'Scan-verified site delivery; real-time 3D erection progress visible to plant directors.'
+        before: 'Weeks of WhatsApp disputes over misplaced parts and site delays.',
+        after: 'Scan-verified site delivery with real-time 3D erection progress tracking.'
       },
-      telemetrySnippet: 'SITE S-147 &bull; 14 Columns Erected Today (42.8 MT) &bull; RA Bill #04 Milestone Triggered'
+      telemetrySnippet: 'SITE S-147 • 14 Columns Erected (42.8 MT) • RA Bill #04 Triggered'
     }
   ];
 
@@ -205,16 +209,17 @@ export default function EnquiryToErectionLifecycle({ onOpenConsultation }) {
   return (
     <section 
       style={{
-        padding: '85px 0',
+        padding: '90px 0',
         backgroundColor: '#FFFFFF',
         borderTop: '1px solid #E2E8F0',
-        borderBottom: '1px solid #E2E8F0'
+        borderBottom: '1px solid #E2E8F0',
+        position: 'relative'
       }}
     >
       <div className="container">
         {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '860px', margin: '0 auto 40px' }}>
-          <div className="badge-tech badge-amber" style={{ marginBottom: '12px' }}>
+        <div style={{ textAlign: 'center', maxWidth: '860px', margin: '0 auto 48px' }}>
+          <div className="badge-tech badge-amber" style={{ marginBottom: '14px' }}>
             <Sparkles size={13} color="#D97706" />
             <span>COMPLETE INDUSTRIAL WORKFLOW &bull; ENQUIRY TO ERECTION</span>
           </div>
@@ -230,242 +235,314 @@ export default function EnquiryToErectionLifecycle({ onOpenConsultation }) {
           >
             How Heavy PEB Plants Run On <span style={{ color: '#2563EB' }}>Keshav Info</span>
           </h2>
-          <p style={{ color: '#475569', fontSize: '1.02rem', lineHeight: 1.6 }}>
+          <p style={{ color: '#475569', fontSize: '1.02rem', lineHeight: 1.6, margin: 0 }}>
             Explore the 8 interconnected stages of our specialized operating system. 
-            Click any stage below to inspect shop-floor controls, automated formulas, and bottlenecks eliminated.
+            Click any stage arrow on the left to inspect shop-floor controls, automated formulas, and bottlenecks eliminated.
           </p>
         </div>
 
-        {/* Horizontal Step Pipeline Bar */}
+        {/* 2-Column Layout: Left Side Capsule Arrow Pills & Right Side Content */}
         <div 
+          className="lifecycle-layout-grid"
           style={{
-            display: 'flex',
-            overflowX: 'auto',
-            gap: '8px',
-            paddingBottom: '14px',
-            marginBottom: '32px',
-            borderBottom: '2px solid #F1F5F9',
-            scrollbarWidth: 'thin'
+            display: 'grid',
+            gridTemplateColumns: 'minmax(280px, 340px) 1fr',
+            gap: '32px',
+            alignItems: 'start'
           }}
         >
-          {steps.map((st, idx) => {
-            const isActive = activeStep === idx;
-            return (
-              <button
-                key={st.id}
-                onClick={() => setActiveStep(idx)}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '10px 16px',
-                  borderRadius: '8px',
-                  border: isActive ? `1.5px solid ${st.color}` : '1px solid #E2E8F0',
-                  backgroundColor: isActive ? '#EFF6FF' : '#FFFFFF',
-                  color: isActive ? st.color : '#475569',
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '0.86rem',
-                  fontWeight: isActive ? 800 : 600,
-                  cursor: 'pointer',
-                  whiteSpace: 'nowrap',
-                  transition: 'all 0.18s ease',
-                  boxShadow: isActive ? '0 4px 14px rgba(37, 99, 235, 0.12)' : 'none'
-                }}
-              >
-                <span 
-                  className="mono" 
-                  style={{ 
-                    fontSize: '0.72rem', 
-                    padding: '2px 6px', 
-                    borderRadius: '4px', 
-                    backgroundColor: isActive ? st.color : '#F1F5F9',
-                    color: isActive ? '#FFFFFF' : '#64748B',
-                    fontWeight: 700 
-                  }}
-                >
-                  {st.stepNum}
-                </span>
-                <span>{st.shortTitle}</span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Detailed Stage Deep-Dive Card */}
-        <div 
-          className="card"
-          style={{
-            backgroundColor: '#F8FAFC',
-            border: '1px solid #CBD5E1',
-            borderRadius: '16px',
-            padding: '36px',
-            boxShadow: '0 10px 30px rgba(15, 23, 42, 0.06)'
-          }}
-        >
-          {/* Top Stage Bar */}
+          {/* Left Column: 8 Capsule Pills with Left Circle Icon and Right Arrow */}
           <div 
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              gap: '12px',
-              borderBottom: '1px solid #E2E8F0',
-              paddingBottom: '20px',
-              marginBottom: '26px'
+            style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              gap: '12px' 
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div 
-                style={{
-                  width: '46px',
-                  height: '46px',
-                  borderRadius: '10px',
-                  backgroundColor: '#FFFFFF',
-                  border: `1.5px solid ${current.color}`,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: current.color,
-                  boxShadow: '0 2px 8px rgba(15, 23, 42, 0.05)'
-                }}
-              >
-                {current.icon}
-              </div>
-              <div>
-                <span className="mono" style={{ fontSize: '0.74rem', color: current.color, fontWeight: 700, letterSpacing: '0.04em' }}>
-                  {current.badge}
-                </span>
-                <h3 className="heading-font" style={{ fontSize: '1.45rem', fontWeight: 800, color: '#0F172A', margin: 0 }}>
-                  {current.title}
-                </h3>
-              </div>
-            </div>
+            {steps.map((st, idx) => {
+              const isActive = activeStep === idx;
+              return (
+                <button
+                  key={st.id}
+                  onClick={() => setActiveStep(idx)}
+                  className={`lifecycle-stage-pill ${isActive ? 'active' : ''}`}
+                  style={{
+                    width: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    padding: '10px 16px 10px 12px',
+                    borderRadius: '9999px',
+                    border: `1.5px solid ${isActive ? st.color : st.border}`,
+                    backgroundColor: isActive ? st.color : st.bgLight,
+                    color: isActive ? '#FFFFFF' : '#1E293B',
+                    cursor: 'pointer',
+                    boxShadow: isActive 
+                      ? `0 10px 24px -4px ${st.color}45, 0 4px 10px -2px rgba(15, 23, 42, 0.08)` 
+                      : '0 1px 3px rgba(15, 23, 42, 0.04)',
+                    transform: isActive ? 'translateX(6px)' : 'none',
+                    position: 'relative'
+                  }}
+                  aria-label={`Select stage ${st.stepNum}: ${st.shortTitle}`}
+                >
+                  {/* Left: Circle Icon Container */}
+                  <div
+                    style={{
+                      width: '38px',
+                      height: '38px',
+                      borderRadius: '50%',
+                      backgroundColor: isActive ? 'rgba(255, 255, 255, 0.22)' : '#FFFFFF',
+                      color: isActive ? '#FFFFFF' : st.color,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                      boxShadow: isActive ? 'none' : '0 1px 4px rgba(15, 23, 42, 0.08)',
+                      transition: 'all 0.2s ease'
+                    }}
+                  >
+                    {st.icon}
+                  </div>
 
-            <span className="badge-tech" style={{ backgroundColor: '#FFFFFF', border: '1px solid #CBD5E1', color: '#0F172A', fontSize: '0.78rem' }}>
-              {current.subtitle}
-            </span>
+                  {/* Center: Stage Number & Short Title */}
+                  <div
+                    style={{
+                      flex: 1,
+                      marginLeft: '12px',
+                      marginRight: '8px',
+                      textAlign: 'left'
+                    }}
+                  >
+                    <div
+                      className="mono"
+                      style={{
+                        fontSize: '0.68rem',
+                        fontWeight: 700,
+                        letterSpacing: '0.06em',
+                        textTransform: 'uppercase',
+                        color: isActive ? 'rgba(255, 255, 255, 0.88)' : st.color,
+                        marginBottom: '1px'
+                      }}
+                    >
+                      Stage {st.stepNum}
+                    </div>
+                    <div
+                      className="heading-font"
+                      style={{
+                        fontSize: '0.94rem',
+                        fontWeight: 700,
+                        color: isActive ? '#FFFFFF' : '#1E293B',
+                        lineHeight: 1.25,
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis'
+                      }}
+                    >
+                      {st.shortTitle}
+                    </div>
+                  </div>
+
+                  {/* Right: Circular Arrow Button */}
+                  <div
+                    className="lifecycle-pill-arrow"
+                    style={{
+                      width: '32px',
+                      height: '32px',
+                      borderRadius: '50%',
+                      backgroundColor: isActive ? 'rgba(255, 255, 255, 0.26)' : '#FFFFFF',
+                      color: isActive ? '#FFFFFF' : st.color,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                      boxShadow: isActive ? 'none' : '0 1px 4px rgba(15, 23, 42, 0.06)'
+                    }}
+                  >
+                    <ChevronRight size={18} strokeWidth={2.6} />
+                  </div>
+                </button>
+              );
+            })}
           </div>
 
-          {/* Main Content Grid */}
+          {/* Right Column: Sleek Streamlined Stage Card */}
           <div 
+            key={current.id}
+            className="card stage-content-animate"
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '30px',
-              marginBottom: '28px'
+              backgroundColor: '#FFFFFF',
+              border: '1.5px solid #E2E8F0',
+              borderRadius: '20px',
+              padding: '28px 32px',
+              boxShadow: '0 10px 30px rgba(15, 23, 42, 0.05)',
+              borderTop: `4px solid ${current.color}`
             }}
           >
-            {/* Left: Overview & Key Capabilities */}
-            <div>
-              <p style={{ color: '#334155', fontSize: '0.96rem', lineHeight: 1.7, marginBottom: '22px' }}>
-                {current.description}
-              </p>
+            {/* Top Stage Header Bar */}
+            <div 
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                gap: '12px',
+                borderBottom: '1px solid #F1F5F9',
+                paddingBottom: '18px',
+                marginBottom: '18px'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <div 
+                  style={{
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '10px',
+                    backgroundColor: current.bgLight,
+                    border: `1.5px solid ${current.border}`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: current.color,
+                    boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)',
+                    flexShrink: 0
+                  }}
+                >
+                  {current.icon}
+                </div>
+                <div>
+                  <span 
+                    className="mono" 
+                    style={{ 
+                      fontSize: '0.7rem', 
+                      color: current.color, 
+                      fontWeight: 700, 
+                      letterSpacing: '0.05em',
+                      display: 'block',
+                      marginBottom: '2px'
+                    }}
+                  >
+                    {current.badge}
+                  </span>
+                  <h3 className="heading-font" style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0F172A', margin: 0, lineHeight: 1.25 }}>
+                    {current.title}
+                  </h3>
+                </div>
+              </div>
 
-              <h4 className="heading-font" style={{ fontSize: '0.98rem', fontWeight: 800, color: '#0F172A', marginBottom: '12px' }}>
-                Engineered Capabilities & Algorithms:
-              </h4>
+              <span 
+                className="badge-tech" 
+                style={{ 
+                  backgroundColor: current.bgLight, 
+                  border: `1px solid ${current.border}`, 
+                  color: current.color, 
+                  fontSize: '0.76rem',
+                  fontWeight: 600,
+                  borderRadius: '9999px',
+                  padding: '5px 12px'
+                }}
+              >
+                {current.subtitle}
+              </span>
+            </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            {/* Description */}
+            <p style={{ color: '#475569', fontSize: '0.94rem', lineHeight: 1.6, marginBottom: '20px' }}>
+              {current.description}
+            </p>
+
+            {/* Key Capabilities: Clean Compact Grid */}
+            <div style={{ marginBottom: '20px' }}>
+              <div 
+                className="mono" 
+                style={{ 
+                  fontSize: '0.72rem', 
+                  fontWeight: 700, 
+                  color: '#64748B', 
+                  letterSpacing: '0.04em', 
+                  textTransform: 'uppercase', 
+                  marginBottom: '10px' 
+                }}
+              >
+                Key Capabilities:
+              </div>
+              <div 
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+                  gap: '8px 16px'
+                }}
+              >
                 {current.capabilities.map((cap, cIdx) => (
-                  <div key={cIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '0.88rem', color: '#1E293B' }}>
-                    <CheckCircle2 size={17} color="#059669" style={{ flexShrink: 0, marginTop: '2px' }} />
+                  <div key={cIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.86rem', color: '#1E293B', lineHeight: 1.45 }}>
+                    <CheckCircle2 size={16} color="#059669" style={{ flexShrink: 0, marginTop: '2px' }} />
                     <span>{cap}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Right: Bottleneck Solved + Live Telemetry Banner */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-              {/* Bottleneck Card */}
-              <div 
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: '12px',
-                  border: '1px solid #E2E8F0',
-                  padding: '22px',
-                  boxShadow: 'var(--shadow-card)'
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-                  <AlertCircle size={18} color="#D97706" />
-                  <span className="heading-font" style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0F172A' }}>
-                    Ground-Reality Shop Bottleneck Eliminated
-                  </span>
-                </div>
-
-                <div style={{ marginBottom: '14px', padding: '12px', borderRadius: '8px', backgroundColor: '#FEF2F2', border: '1px solid #FECACA' }}>
-                  <div className="mono" style={{ fontSize: '0.72rem', color: '#DC2626', fontWeight: 700, marginBottom: '4px' }}>
-                    BEFORE (EXCEL / GENERIC ERP / TALLY):
-                  </div>
-                  <p style={{ fontSize: '0.84rem', color: '#991B1B', margin: 0, lineHeight: 1.5 }}>
-                    {current.bottleneckSolved.before}
-                  </p>
-                </div>
-
-                <div style={{ padding: '12px', borderRadius: '8px', backgroundColor: '#ECFDF5', border: '1px solid #A7F3D0' }}>
-                  <div className="mono" style={{ fontSize: '0.72rem', color: '#047857', fontWeight: 700, marginBottom: '4px' }}>
-                    AFTER (KESHAV INFO INDUSTRIAL OS):
-                  </div>
-                  <p style={{ fontSize: '0.84rem', color: '#065F46', margin: 0, lineHeight: 1.5 }}>
-                    {current.bottleneckSolved.after}
-                  </p>
-                </div>
+            {/* Compact Side-by-Side Bottleneck / Impact */}
+            <div 
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+                gap: '12px',
+                marginBottom: '20px',
+                padding: '14px 16px',
+                backgroundColor: '#F8FAFC',
+                borderRadius: '12px',
+                border: '1px solid #E2E8F0'
+              }}
+            >
+              <div style={{ fontSize: '0.82rem', color: '#991B1B', lineHeight: 1.45 }}>
+                <strong style={{ color: '#DC2626', display: 'block', fontSize: '0.7rem', letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: '3px' }}>
+                  Before (Manual / Generic ERP):
+                </strong>
+                {current.bottleneckSolved.before}
               </div>
+              <div style={{ fontSize: '0.82rem', color: '#065F46', lineHeight: 1.45 }}>
+                <strong style={{ color: '#047857', display: 'block', fontSize: '0.7rem', letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: '3px' }}>
+                  With Keshav Info:
+                </strong>
+                {current.bottleneckSolved.after}
+              </div>
+            </div>
 
-              {/* Real-time Telemetry Status Snippet */}
-              <div 
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: '10px',
-                  border: '1px solid #CBD5E1',
-                  padding: '14px 18px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '10px'
-                }}
-              >
+            {/* Footer: Live Telemetry + Action Button */}
+            <div 
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '12px',
+                paddingTop: '16px',
+                borderTop: '1px solid #F1F5F9'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span className="status-pulse" style={{ backgroundColor: current.color }} />
-                <span className="mono" style={{ fontSize: '0.78rem', color: '#334155', fontWeight: 600 }}>
+                <span className="mono" style={{ fontSize: '0.76rem', color: '#475569', fontWeight: 600 }}>
                   {current.telemetrySnippet}
                 </span>
               </div>
-            </div>
-          </div>
 
-          {/* Bottom Actions Bar */}
-          <div 
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: '14px',
-              borderTop: '1px solid #E2E8F0',
-              paddingTop: '20px'
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#64748B', fontSize: '0.84rem' }}>
-              <Clock size={15} color="#2563EB" />
-              <span>Full onboarding takes 3-5 weeks with guaranteed shop-floor parallel runs.</span>
-            </div>
-
-            <div style={{ display: 'flex', gap: '10px' }}>
-              <Link 
-                to="/workstation" 
-                className="btn btn-secondary" 
-                style={{ padding: '9px 18px', fontSize: '0.86rem', fontWeight: 600 }}
-              >
-                Test in Live Workstation &rarr;
-              </Link>
-              <button 
-                onClick={onOpenConsultation}
-                className="btn btn-primary" 
-                style={{ padding: '9px 20px', fontSize: '0.86rem', fontWeight: 700 }}
-              >
-                Request Plant Assessment
-              </button>
+              <div style={{ display: 'flex', gap: '10px' }}>
+                <Link 
+                  to="/workstation" 
+                  className="btn btn-secondary" 
+                  style={{ padding: '8px 16px', fontSize: '0.82rem', fontWeight: 600 }}
+                >
+                  Workstation &rarr;
+                </Link>
+                <button 
+                  onClick={onOpenConsultation}
+                  className="btn btn-primary" 
+                  style={{ padding: '8px 18px', fontSize: '0.82rem', fontWeight: 700 }}
+                >
+                  Request Assessment
+                </button>
+              </div>
             </div>
           </div>
         </div>

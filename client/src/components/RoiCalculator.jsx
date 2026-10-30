@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Calculator, 
-  ArrowRight
+  ArrowRight,
+  TrendingUp,
+  ShieldCheck,
+  Truck,
+  Sparkles
 } from 'lucide-react';
 
 export default function RoiCalculator({ onOpenConsultation }) {
@@ -85,62 +88,69 @@ export default function RoiCalculator({ onOpenConsultation }) {
     >
       <div className="container">
         {/* Section Heading */}
-        <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 40px' }}>
-          <div className="badge-tech" style={{ marginBottom: '12px' }}>
+        <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 48px' }}>
+          <div className="badge-tech" style={{ marginBottom: '14px' }}>
             <span>FINANCIAL BENCHMARK TOOL</span>
           </div>
           <h2 
             className="heading-font"
             style={{
-              fontSize: 'clamp(1.7rem, 3.2vw, 2.5rem)',
+              fontSize: 'clamp(2rem, 3.5vw, 2.8rem)',
               fontWeight: 800,
               letterSpacing: '-0.02em',
               color: '#0F172A',
-              marginBottom: '12px'
+              marginBottom: '14px',
+              lineHeight: 1.2
             }}
           >
             Calculate Your Plant's Cashflow Retention
           </h2>
-          <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: 1.6 }}>
+          <p style={{ color: '#475569', fontSize: '1.02rem', lineHeight: 1.65 }}>
             Adjust your monthly structural steel tonnage and tracking methods to quantify recoverable working capital.
           </p>
         </div>
 
-        {/* Crisp Grid */}
+        {/* 2-Column High-Impact Card Layout (Zoho ERP Style) */}
         <div 
           style={{
-            maxWidth: '1060px',
+            maxWidth: '1120px',
             margin: '0 auto',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '26px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+            gap: '32px',
             alignItems: 'stretch'
           }}
         >
           {/* Controls Side */}
           <div 
+            className="card zoho-card-lift"
             style={{
-              backgroundColor: '#F8FAFC',
-              borderRadius: '14px',
-              border: '1px solid #E2E8F0',
-              padding: '28px',
+              backgroundColor: '#FFFFFF',
+              borderRadius: '20px',
+              border: '1.5px solid #E2E8F0',
+              padding: '36px',
               display: 'flex',
               flexDirection: 'column',
-              gap: '24px',
-              boxShadow: 'var(--shadow-card)'
+              gap: '28px',
+              boxShadow: '0 8px 24px rgba(15, 23, 42, 0.04)'
             }}
           >
-            <h3 className="heading-font" style={{ color: '#0F172A', fontSize: '1.15rem', fontWeight: 700 }}>
-              Operational Parameters
-            </h3>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div style={{ width: '36px', height: '36px', borderRadius: '10px', backgroundColor: '#EFF6FF', border: '1px solid #BFDBFE', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Sparkles size={18} color="#2563EB" />
+              </div>
+              <h3 className="heading-font" style={{ color: '#0F172A', fontSize: '1.25rem', fontWeight: 800, margin: 0 }}>
+                Operational Parameters
+              </h3>
+            </div>
 
-            {/* Slider 1 */}
+            {/* Slider 1: Monthly Tonnage */}
             <div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                <label style={{ fontSize: '0.86rem', color: '#475569', fontWeight: 500 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                <label style={{ fontSize: '0.92rem', color: '#334155', fontWeight: 600 }}>
                   Monthly Fabrication Tonnage
                 </label>
-                <span className="mono" style={{ fontSize: '1rem', fontWeight: 700, color: '#2563EB' }}>
+                <span className="mono" style={{ fontSize: '1.05rem', fontWeight: 800, color: '#2563EB', padding: '3px 10px', backgroundColor: '#EFF6FF', borderRadius: '6px', border: '1px solid #BFDBFE' }}>
                   {monthlyTonnage} MT / mo
                 </span>
               </div>
@@ -152,20 +162,20 @@ export default function RoiCalculator({ onOpenConsultation }) {
                 value={monthlyTonnage} 
                 onChange={(e) => setMonthlyTonnage(Number(e.target.value))} 
               />
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', color: '#64748B', marginTop: '6px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.74rem', color: '#64748B', marginTop: '6px' }}>
                 <span>100 MT</span>
                 <span>1,200 MT</span>
                 <span>2,500 MT</span>
               </div>
             </div>
 
-            {/* Slider 2 */}
+            {/* Slider 2: Steel Base Price */}
             <div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                <label style={{ fontSize: '0.86rem', color: '#475569', fontWeight: 500 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                <label style={{ fontSize: '0.92rem', color: '#334155', fontWeight: 600 }}>
                   Average Steel Base Price
                 </label>
-                <span className="mono" style={{ fontSize: '1rem', fontWeight: 700, color: '#2563EB' }}>
+                <span className="mono" style={{ fontSize: '1.05rem', fontWeight: 800, color: '#2563EB', padding: '3px 10px', backgroundColor: '#EFF6FF', borderRadius: '6px', border: '1px solid #BFDBFE' }}>
                   ₹ {steelPrice.toLocaleString('en-IN')} / MT
                 </span>
               </div>
@@ -177,15 +187,20 @@ export default function RoiCalculator({ onOpenConsultation }) {
                 value={steelPrice} 
                 onChange={(e) => setSteelPrice(Number(e.target.value))} 
               />
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.74rem', color: '#64748B', marginTop: '6px' }}>
+                <span>₹48,000 / MT</span>
+                <span>₹66,000 / MT</span>
+                <span>₹85,000 / MT</span>
+              </div>
             </div>
 
-            {/* Slider 3 */}
+            {/* Slider 3: Active Projects */}
             <div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                <label style={{ fontSize: '0.86rem', color: '#475569', fontWeight: 500 }}>
-                  Active Sites in Progress
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                <label style={{ fontSize: '0.92rem', color: '#334155', fontWeight: 600 }}>
+                  Active Sites in Progress Concurrently
                 </label>
-                <span className="mono" style={{ fontSize: '1rem', fontWeight: 700, color: '#2563EB' }}>
+                <span className="mono" style={{ fontSize: '1.05rem', fontWeight: 800, color: '#2563EB', padding: '3px 10px', backgroundColor: '#EFF6FF', borderRadius: '6px', border: '1px solid #BFDBFE' }}>
                   {activeProjects} Projects
                 </span>
               </div>
@@ -197,12 +212,17 @@ export default function RoiCalculator({ onOpenConsultation }) {
                 value={activeProjects} 
                 onChange={(e) => setActiveProjects(Number(e.target.value))} 
               />
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.74rem', color: '#64748B', marginTop: '6px' }}>
+                <span>1 Site</span>
+                <span>12 Sites</span>
+                <span>25 Sites</span>
+              </div>
             </div>
 
-            {/* Current Method */}
+            {/* Current Method Switcher */}
             <div>
-              <label style={{ fontSize: '0.86rem', color: '#475569', display: 'block', marginBottom: '10px', fontWeight: 500 }}>
-                Current Shop-Floor Method
+              <label style={{ fontSize: '0.92rem', color: '#334155', display: 'block', marginBottom: '12px', fontWeight: 600 }}>
+                Current Shop-Floor Tracking Method
               </label>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px' }}>
                 {[
@@ -214,17 +234,17 @@ export default function RoiCalculator({ onOpenConsultation }) {
                     key={sys.id}
                     onClick={() => setCurrentSystem(sys.id)}
                     style={{
-                      padding: '10px 8px',
-                      borderRadius: '8px',
-                      border: currentSystem === sys.id ? '1px solid #1D4ED8' : '1px solid #CBD5E1',
-                      backgroundColor: currentSystem === sys.id ? '#2563EB' : '#FFFFFF',
-                      color: currentSystem === sys.id ? '#FFFFFF' : '#334155',
-                      fontSize: '0.8rem',
+                      padding: '12px 10px',
+                      borderRadius: '10px',
+                      border: currentSystem === sys.id ? '2px solid #2563EB' : '1.5px solid #CBD5E1',
+                      backgroundColor: currentSystem === sys.id ? '#EFF6FF' : '#FFFFFF',
+                      color: currentSystem === sys.id ? '#1D4ED8' : '#334155',
+                      fontSize: '0.84rem',
                       fontWeight: currentSystem === sys.id ? 700 : 500,
                       cursor: 'pointer',
                       textAlign: 'center',
-                      boxShadow: currentSystem === sys.id ? '0 2px 8px rgba(37,99,235,0.25)' : 'none',
-                      transition: 'all 0.15s ease'
+                      boxShadow: currentSystem === sys.id ? '0 4px 12px rgba(37,99,235,0.15)' : 'none',
+                      transition: 'all 0.18s ease'
                     }}
                   >
                     {sys.label}
@@ -234,68 +254,75 @@ export default function RoiCalculator({ onOpenConsultation }) {
             </div>
           </div>
 
-          {/* Results Side */}
+          {/* Results Side (Zoho ERP Elevated Financial Card) */}
           {results && (
             <div 
+              className="card zoho-card-lift"
               style={{
                 backgroundColor: '#EFF6FF',
-                borderRadius: '14px',
-                border: '1px solid #BFDBFE',
-                padding: '28px',
+                borderRadius: '20px',
+                border: '1.5px solid #BFDBFE',
+                padding: '36px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                boxShadow: 'var(--shadow-card)'
+                boxShadow: '0 12px 32px rgba(37, 99, 235, 0.08)',
+                position: 'relative',
+                overflow: 'hidden'
               }}
             >
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                  <span className="mono" style={{ fontSize: '0.74rem', color: '#1E40AF', fontWeight: 700 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap', gap: '8px' }}>
+                  <span className="mono" style={{ fontSize: '0.78rem', color: '#1E40AF', fontWeight: 800, letterSpacing: '0.04em' }}>
                     PROJECTED ANNUAL CASH RECOVERY
                   </span>
-                  <span className="mono" style={{ fontSize: '0.74rem', color: '#047857', padding: '3px 8px', borderRadius: '4px', background: '#ECFDF5', border: '1px solid #A7F3D0', fontWeight: 700 }}>
+                  <span className="mono" style={{ fontSize: '0.76rem', color: '#047857', padding: '4px 10px', borderRadius: '6px', background: '#ECFDF5', border: '1px solid #A7F3D0', fontWeight: 700 }}>
                     PAYBACK: ~{results.paybackWeeks} WEEKS
                   </span>
                 </div>
 
-                <div style={{ marginBottom: '22px' }}>
-                  <div style={{ fontSize: '0.86rem', color: '#475569', fontWeight: 500 }}>
+                <div style={{ marginBottom: '28px' }}>
+                  <div style={{ fontSize: '0.92rem', color: '#475569', fontWeight: 600 }}>
                     Total Estimated Annual Cashflow Retention
                   </div>
                   <div 
                     className="heading-font"
                     style={{
-                      fontSize: 'clamp(2.2rem, 3.8vw, 3rem)',
+                      fontSize: 'clamp(2.4rem, 4vw, 3.2rem)',
                       fontWeight: 800,
                       color: '#1D4ED8',
                       lineHeight: 1.1,
-                      marginTop: '6px'
+                      marginTop: '8px',
+                      letterSpacing: '-0.02em'
                     }}
                   >
                     {formatINR(results.totalSavings)}
-                    <span style={{ fontSize: '0.95rem', color: '#64748B', fontWeight: 500 }}> / year</span>
+                    <span style={{ fontSize: '1rem', color: '#64748B', fontWeight: 500 }}> / year</span>
                   </div>
-                  <div className="mono" style={{ fontSize: '0.8rem', color: '#059669', fontWeight: 600, marginTop: '6px' }}>
+                  <div className="mono" style={{ fontSize: '0.84rem', color: '#059669', fontWeight: 700, marginTop: '8px' }}>
                     ~{results.metricTonsSaved} Metric Tonnes of prime steel scrap saved yearly
                   </div>
                 </div>
 
-                {/* Minimal Breakdown */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '26px' }}>
+                {/* Detailed Recovery Breakdown Items */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
                   <div 
                     style={{
                       display: 'flex',
                       justifyContent: 'space-between',
                       alignItems: 'center',
-                      padding: '12px 14px',
+                      padding: '14px 16px',
                       backgroundColor: '#FFFFFF',
-                      borderRadius: '8px',
+                      borderRadius: '10px',
                       border: '1px solid #DBEAFE',
-                      fontSize: '0.86rem'
+                      fontSize: '0.9rem'
                     }}
                   >
-                    <span style={{ color: '#334155', fontWeight: 500 }}>Plate & Coil Scrap Salvage</span>
-                    <span className="mono" style={{ color: '#0F172A', fontWeight: 700 }}>{formatINR(results.scrapSavings)}</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <TrendingUp size={16} color="#2563EB" />
+                      <span style={{ color: '#334155', fontWeight: 600 }}>Plate &amp; Coil Scrap Salvage</span>
+                    </div>
+                    <span className="mono" style={{ color: '#0F172A', fontWeight: 800 }}>{formatINR(results.scrapSavings)}</span>
                   </div>
 
                   <div 
@@ -303,15 +330,18 @@ export default function RoiCalculator({ onOpenConsultation }) {
                       display: 'flex',
                       justifyContent: 'space-between',
                       alignItems: 'center',
-                      padding: '12px 14px',
+                      padding: '14px 16px',
                       backgroundColor: '#FFFFFF',
-                      borderRadius: '8px',
+                      borderRadius: '10px',
                       border: '1px solid #DBEAFE',
-                      fontSize: '0.86rem'
+                      fontSize: '0.9rem'
                     }}
                   >
-                    <span style={{ color: '#334155', fontWeight: 500 }}>Contractor Duplicate Billing Recovery</span>
-                    <span className="mono" style={{ color: '#0F172A', fontWeight: 700 }}>{formatINR(results.contractorSavings)}</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <ShieldCheck size={16} color="#059669" />
+                      <span style={{ color: '#334155', fontWeight: 600 }}>Contractor Duplicate Claims Plugged</span>
+                    </div>
+                    <span className="mono" style={{ color: '#0F172A', fontWeight: 800 }}>{formatINR(results.contractorSavings)}</span>
                   </div>
 
                   <div 
@@ -319,25 +349,30 @@ export default function RoiCalculator({ onOpenConsultation }) {
                       display: 'flex',
                       justifyContent: 'space-between',
                       alignItems: 'center',
-                      padding: '12px 14px',
+                      padding: '14px 16px',
                       backgroundColor: '#FFFFFF',
-                      borderRadius: '8px',
+                      borderRadius: '10px',
                       border: '1px solid #DBEAFE',
-                      fontSize: '0.86rem'
+                      fontSize: '0.9rem'
                     }}
                   >
-                    <span style={{ color: '#334155', fontWeight: 500 }}>Crane & Trailer Idling Avoided</span>
-                    <span className="mono" style={{ color: '#0F172A', fontWeight: 700 }}>{formatINR(results.craneSavings)}</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <Truck size={16} color="#D97706" />
+                      <span style={{ color: '#334155', fontWeight: 600 }}>Site Crane &amp; Trailer Detention Avoidance</span>
+                    </div>
+                    <span className="mono" style={{ color: '#0F172A', fontWeight: 800 }}>{formatINR(results.craneSavings)}</span>
                   </div>
                 </div>
               </div>
 
-              <button
+              {/* Consultation Trigger */}
+              <button 
                 onClick={onOpenConsultation}
                 className="btn btn-primary"
-                style={{ width: '100%', padding: '13px', fontSize: '0.94rem', fontWeight: 700 }}
+                style={{ width: '100%', padding: '14px 20px', fontSize: '0.95rem', fontWeight: 700 }}
               >
-                Discuss Plant ROI Implementation &rarr;
+                <span>Request Detailed Plant Audit Report</span>
+                <ArrowRight size={16} />
               </button>
             </div>
           )}

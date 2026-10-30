@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
 import { 
-  CheckCircle2, 
   Workflow, 
   Terminal, 
   X, 
-  Layers, 
   Scale, 
   Compass,
   ArrowRight,
-  ShieldCheck,
   Cpu,
-  Radio,
-  FileCode,
-  Gauge
+  Receipt
 } from 'lucide-react';
 
 export default function IntegrationsEcosystem() {
@@ -627,120 +622,171 @@ export default function IntegrationsEcosystem() {
   );
 }
 
-// Reusable Multi-Card Component with Hover Effects & Direct Click Handler
+function getCategoryGradient(categoryKey) {
+  switch (categoryKey) {
+    case 'CAD':
+      return 'linear-gradient(135deg, #2563EB 0%, #3B82F6 45%, #60A5FA 100%)';
+    case 'HARDWARE':
+      return 'linear-gradient(135deg, #059669 0%, #10B981 50%, #34D399 100%)';
+    case 'MACHINERY':
+      return 'linear-gradient(135deg, #7C3AED 0%, #8B5CF6 50%, #A78BFA 100%)';
+    case 'FINANCE':
+      return 'linear-gradient(135deg, #D97706 0%, #F59E0B 50%, #FBBF24 100%)';
+    default:
+      return 'linear-gradient(135deg, #3B82F6 0%, #60A5FA 50%, #F472B6 100%)';
+  }
+}
+
+function getCategoryIcon(categoryKey) {
+  switch (categoryKey) {
+    case 'CAD':
+      return <Compass size={22} color="#FFFFFF" strokeWidth={2.2} />;
+    case 'HARDWARE':
+      return <Scale size={22} color="#FFFFFF" strokeWidth={2.2} />;
+    case 'MACHINERY':
+      return <Cpu size={22} color="#FFFFFF" strokeWidth={2.2} />;
+    case 'FINANCE':
+      return <Receipt size={22} color="#FFFFFF" strokeWidth={2.2} />;
+    default:
+      return <Workflow size={22} color="#FFFFFF" strokeWidth={2.2} />;
+  }
+}
+
+// Reusable Multi-Card Component (Zoho ERP Card Style Match)
 function IntegrationCard({ item, onSelect }) {
+  const gradient = getCategoryGradient(item.categoryKey);
+  const icon = getCategoryIcon(item.categoryKey);
+
   return (
     <div 
       onClick={onSelect}
       className="card integration-card-interactive"
       style={{
-        width: '350px',
+        width: '360px',
         flexShrink: 0,
         backgroundColor: '#FFFFFF',
-        borderRadius: '14px',
-        border: '1px solid #E2E8F0',
-        padding: '24px',
+        borderRadius: '16px',
+        border: '1.5px solid #E2E8F0',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        boxShadow: 'var(--shadow-card)',
-        position: 'relative'
+        boxShadow: '0 4px 14px rgba(15, 23, 42, 0.03)',
+        transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
+        cursor: 'pointer',
+        overflow: 'hidden'
       }}
     >
-      {/* Top 3px Colored Accent Border Bar */}
-      <div 
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '3px',
-          backgroundColor: item.badgeColor,
-          borderTopLeftRadius: '14px',
-          borderTopRightRadius: '14px'
-        }}
-      />
+      {/* Card Body */}
+      <div style={{ padding: '24px 24px 18px' }}>
+        {/* Top Header Row: Gradient Icon + Title & Category */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', marginBottom: '14px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <div 
+              style={{
+                width: '46px',
+                height: '46px',
+                borderRadius: '12px',
+                background: gradient,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+                boxShadow: '0 4px 12px rgba(15, 23, 42, 0.12)'
+              }}
+            >
+              {icon}
+            </div>
+            <div>
+              <h3 
+                className="heading-font" 
+                style={{ 
+                  fontSize: '1.14rem', 
+                  fontWeight: 700, 
+                  color: '#0F172A', 
+                  margin: 0,
+                  lineHeight: 1.25
+                }}
+              >
+                {item.name}
+              </h3>
+              <div style={{ fontSize: '0.78rem', color: '#64748B', fontWeight: 500, marginTop: '2px' }}>
+                {item.category}
+              </div>
+            </div>
+          </div>
 
-      <div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
           <span 
             className="mono" 
             style={{ 
-              fontSize: '0.68rem', 
+              fontSize: '0.66rem', 
               color: item.badgeColor, 
-              fontWeight: 800,
+              fontWeight: 700,
               backgroundColor: `${item.badgeColor}12`,
-              padding: '3px 8px',
-              borderRadius: '4px',
-              letterSpacing: '0.04em'
+              padding: '3px 8px', 
+              borderRadius: '6px',
+              border: `1px solid ${item.badgeColor}30`,
+              letterSpacing: '0.03em',
+              whiteSpace: 'nowrap'
             }}
           >
             {item.badge}
           </span>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-            <span className="status-pulse" style={{ backgroundColor: '#059669', width: '7px', height: '7px' }} />
-            <span className="mono" style={{ fontSize: '0.72rem', color: '#059669', fontWeight: 700 }}>
-              Certified
-            </span>
-          </div>
         </div>
 
-        <h3 className="heading-font" style={{ fontSize: '1.18rem', fontWeight: 800, color: '#0F172A', marginBottom: '4px' }}>
-          {item.name}
-        </h3>
-        
-        <div style={{ fontSize: '0.8rem', color: '#64748B', fontWeight: 600, marginBottom: '12px' }}>
-          {item.category}
-        </div>
-
-        <p style={{ color: '#475569', fontSize: '0.86rem', lineHeight: 1.55, marginBottom: '16px' }}>
+        {/* Description */}
+        <p style={{ color: '#475569', fontSize: '0.86rem', lineHeight: 1.6, margin: '0 0 14px' }}>
           {item.desc}
         </p>
+
+        {/* Supported Formats Chips */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+          {item.supportedFormats.slice(0, 4).map((fmt, fIdx) => (
+            <span 
+              key={fIdx} 
+              className="mono" 
+              style={{ 
+                fontSize: '0.68rem', 
+                backgroundColor: '#F8FAFC', 
+                color: '#475569', 
+                padding: '2px 7px', 
+                borderRadius: '5px',
+                border: '1px solid #E2E8F0',
+                fontWeight: 600
+              }}
+            >
+              {fmt}
+            </span>
+          ))}
+        </div>
       </div>
 
-      <div style={{ borderTop: '1px solid #F1F5F9', paddingTop: '14px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-          <span className="mono" style={{ fontSize: '0.72rem', color: '#64748B' }}>
-            Protocol: <strong style={{ color: '#0F172A' }}>{item.protocol}</strong>
-          </span>
-          <span className="mono" style={{ fontSize: '0.72rem', color: '#2563EB', fontWeight: 600 }}>
-            {item.latency}
-          </span>
-        </div>
+      {/* Card Footer: Latency on Left + Inspect Link with Arrow on Right */}
+      <div 
+        style={{ 
+          padding: '14px 24px', 
+          borderTop: '1px solid #F1F5F9',
+          display: 'flex', 
+          justifyContent: 'space-between', 
+          alignItems: 'center',
+          backgroundColor: '#FFFFFF'
+        }}
+      >
+        <span className="mono" style={{ fontSize: '0.74rem', color: '#64748B' }}>
+          Latency: <strong style={{ color: item.badgeColor }}>{item.latency}</strong>
+        </span>
 
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ display: 'flex', gap: '5px' }}>
-            {item.supportedFormats.slice(0, 3).map((fmt, fIdx) => (
-              <span 
-                key={fIdx} 
-                className="mono" 
-                style={{ 
-                  fontSize: '0.66rem', 
-                  backgroundColor: '#F8FAFC', 
-                  color: '#475569', 
-                  padding: '2px 6px', 
-                  borderRadius: '4px',
-                  border: '1px solid #E2E8F0'
-                }}
-              >
-                {fmt}
-              </span>
-            ))}
-          </div>
-
-          <div 
-            style={{ 
-              display: 'inline-flex', 
-              alignItems: 'center', 
-              gap: '4px', 
-              color: '#2563EB', 
-              fontSize: '0.78rem', 
-              fontWeight: 700 
-            }}
-          >
-            <span>Inspect</span>
-            <ArrowRight size={13} />
-          </div>
+        <div 
+          style={{ 
+            display: 'inline-flex', 
+            alignItems: 'center', 
+            gap: '5px', 
+            color: '#2563EB', 
+            fontSize: '0.82rem', 
+            fontWeight: 700 
+          }}
+        >
+          <span>Inspect Specs</span>
+          <ArrowRight size={14} className="integration-card-arrow" />
         </div>
       </div>
     </div>

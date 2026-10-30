@@ -15,14 +15,13 @@ import {
   QrCode, 
   ShieldCheck, 
   Download,
-  ArrowRight
+  Sparkles
 } from 'lucide-react';
 
 export default function ErpSimulator() {
   const [activeTab, setActiveTab] = useState('boq');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedStageFilter, setSelectedStageFilter] = useState('ALL');
-  const [selectedBoqItem, setSelectedBoqItem] = useState(MOCK_BOQ_ITEMS[0]);
   const [activeStageIndex, setActiveStageIndex] = useState(2);
   const [selectedCoil, setSelectedCoil] = useState(SAMPLE_COILS[0]);
   const [gatePassGenerated, setGatePassGenerated] = useState(false);
@@ -63,38 +62,71 @@ export default function ErpSimulator() {
     >
       <div className="container">
         {/* Section Heading */}
-        <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 36px' }}>
-          <div className="badge-tech" style={{ marginBottom: '12px' }}>
-            <span>LIVE INTERACTIVE WORKSTATION</span>
+        <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 40px' }}>
+          <div className="badge-tech badge-blue" style={{ marginBottom: '14px' }}>
+            <Sparkles size={13} color="#2563EB" />
+            <span>LIVE INDUSTRIAL OPERATING WORKSTATION</span>
           </div>
           <h2 
             className="heading-font"
             style={{
-              fontSize: 'clamp(1.7rem, 3.2vw, 2.4rem)',
+              fontSize: 'clamp(1.75rem, 3.4vw, 2.5rem)',
               fontWeight: 800,
-              letterSpacing: '-0.02em',
+              letterSpacing: '-0.025em',
               color: '#0F172A',
-              marginBottom: '10px'
+              marginBottom: '12px'
             }}
           >
             SteelCore™ Industrial Operating Workstation
           </h2>
-          <p style={{ color: '#475569', fontSize: '0.96rem', lineHeight: 1.6 }}>
-            Click through real factory workflows below to see how our software orchestrates Tekla part marks, 
+          <p style={{ color: '#475569', fontSize: '1rem', lineHeight: 1.65, margin: 0 }}>
+            Interact with real factory workflows below to see how our software orchestrates Tekla part marks, 
             shop-floor stage inspections, coil slitting yields, and sequence dispatches.
           </p>
         </div>
 
-        {/* Crisp Workstation Container */}
+        {/* Crisp Industrial Workstation Console Container */}
         <div 
           style={{
             backgroundColor: '#FFFFFF',
-            border: '1px solid #CBD5E1',
-            borderRadius: '14px',
+            border: '1.5px solid #CBD5E1',
+            borderRadius: '18px',
             overflow: 'hidden',
-            boxShadow: '0 10px 30px rgba(15, 23, 42, 0.08)'
+            boxShadow: '0 20px 50px rgba(15, 23, 42, 0.08)'
           }}
         >
+          {/* Top Industrial Window Console Bar (macOS Traffic Lights + System Status) */}
+          <div
+            style={{
+              backgroundColor: '#0F172A',
+              padding: '12px 20px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              borderBottom: '1px solid #1E293B',
+              flexWrap: 'wrap',
+              gap: '10px'
+            }}
+          >
+            {/* Left: Window Dots */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ width: '11px', height: '11px', borderRadius: '50%', backgroundColor: '#EF4444' }} />
+              <div style={{ width: '11px', height: '11px', borderRadius: '50%', backgroundColor: '#F59E0B' }} />
+              <div style={{ width: '11px', height: '11px', borderRadius: '50%', backgroundColor: '#10B981' }} />
+              <span className="mono" style={{ fontSize: '0.74rem', color: '#94A3B8', marginLeft: '12px', fontWeight: 600 }}>
+                STEELCORE™ PLANT OS &bull; CONSOLE v4.2
+              </span>
+            </div>
+
+            {/* Center / Right: Live Status Badge */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 12px', backgroundColor: 'rgba(16, 185, 129, 0.15)', borderRadius: '9999px', border: '1px solid rgba(16, 185, 129, 0.3)' }}>
+              <span className="status-pulse" style={{ backgroundColor: '#10B981', width: '7px', height: '7px' }} />
+              <span className="mono" style={{ fontSize: '0.72rem', color: '#34D399', fontWeight: 700 }}>
+                RS232 WEIGHBRIDGE &bull; 0ms LATENCY
+              </span>
+            </div>
+          </div>
+
           {/* Segmented Control Header */}
           <div 
             style={{
@@ -104,7 +136,7 @@ export default function ErpSimulator() {
               justifyContent: 'space-between',
               backgroundColor: '#F8FAFC',
               borderBottom: '1px solid #E2E8F0',
-              padding: '10px 16px',
+              padding: '12px 20px',
               gap: '12px'
             }}
           >
@@ -113,51 +145,51 @@ export default function ErpSimulator() {
               style={{
                 display: 'inline-flex',
                 background: '#E2E8F0',
-                borderRadius: '8px',
+                borderRadius: '10px',
                 padding: '4px',
-                gap: '3px',
+                gap: '4px',
                 flexWrap: 'wrap'
               }}
             >
               {[
-                { id: 'boq', label: '1. Tekla BOQ & Grids', icon: <Layers size={15} /> },
-                { id: 'stages', label: '2. Shop-Floor 8-Stage Tracker', icon: <Cpu size={15} /> },
-                { id: 'coil', label: '3. Raw Coil & Slit Yield', icon: <Disc size={15} /> },
-                { id: 'dispatch', label: '4. Sequence Dispatch', icon: <Truck size={15} /> }
-              ].map(tab => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    padding: '8px 16px',
-                    borderRadius: '6px',
-                    border: 'none',
-                    cursor: 'pointer',
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '0.84rem',
-                    fontWeight: activeTab === tab.id ? 700 : 500,
-                    transition: 'all 0.15s ease',
-                    backgroundColor: activeTab === tab.id ? '#FFFFFF' : 'transparent',
-                    color: activeTab === tab.id ? '#2563EB' : '#475569',
-                    boxShadow: activeTab === tab.id ? '0 1px 4px rgba(15, 23, 42, 0.1)' : 'none'
-                  }}
-                >
-                  {tab.icon}
-                  {tab.label}
-                </button>
-              ))}
+                { id: 'boq', label: '1. Tekla BOQ & Grids', icon: <Layers size={16} /> },
+                { id: 'stages', label: '2. Shop-Floor 8-Stage Tracker', icon: <Cpu size={16} /> },
+                { id: 'coil', label: '3. Raw Coil & Slit Yield', icon: <Disc size={16} /> },
+                { id: 'dispatch', label: '4. Sequence Dispatch', icon: <Truck size={16} /> }
+              ].map(tab => {
+                const isActive = activeTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      padding: '9px 18px',
+                      borderRadius: '8px',
+                      border: 'none',
+                      cursor: 'pointer',
+                      fontFamily: 'var(--font-heading)',
+                      fontSize: '0.86rem',
+                      fontWeight: isActive ? 700 : 600,
+                      transition: 'all 0.18s ease',
+                      backgroundColor: isActive ? '#FFFFFF' : 'transparent',
+                      color: isActive ? '#2563EB' : '#475569',
+                      boxShadow: isActive ? '0 2px 8px rgba(15, 23, 42, 0.08)' : 'none'
+                    }}
+                  >
+                    <span style={{ color: isActive ? '#2563EB' : '#64748B' }}>{tab.icon}</span>
+                    <span>{tab.label}</span>
+                  </button>
+                );
+              })}
             </div>
 
-            {/* Live Indicator */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '6px 12px', background: '#ECFDF5', borderRadius: '999px', border: '1px solid #A7F3D0' }}>
-              <span className="status-pulse" style={{ backgroundColor: '#10B981' }} />
-              <span className="mono" style={{ fontSize: '0.74rem', color: '#047857', fontWeight: 600 }}>
-                KESHAV INFO &bull; CONNECTED
-              </span>
-            </div>
+            {/* Quick Plant Badge */}
+            <span className="mono" style={{ fontSize: '0.74rem', color: '#64748B', fontWeight: 600 }}>
+              ACTIVE JOB: <strong style={{ color: '#0F172A' }}>PEB-S147 &bull; 840 MT</strong>
+            </span>
           </div>
 
           {/* Tab 1: Tekla BOQ */}
@@ -335,8 +367,8 @@ export default function ErpSimulator() {
               <div 
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(115px, 1fr))',
-                  gap: '8px',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(118px, 1fr))',
+                  gap: '10px',
                   marginBottom: '24px'
                 }}
               >
@@ -347,22 +379,24 @@ export default function ErpSimulator() {
                       key={stage.id}
                       onClick={() => setActiveStageIndex(idx)}
                       style={{
-                        padding: '12px 8px',
-                        borderRadius: '8px',
+                        padding: '14px 10px',
+                        borderRadius: '12px',
                         cursor: 'pointer',
-                        backgroundColor: isSelected ? '#EFF6FF' : '#F8FAFC',
-                        border: isSelected ? '2px solid #2563EB' : '1px solid #E2E8F0',
-                        transition: 'all 0.15s ease',
+                        backgroundColor: isSelected ? '#EFF6FF' : '#FFFFFF',
+                        border: isSelected ? '2px solid #2563EB' : '1.5px solid #E2E8F0',
+                        boxShadow: isSelected ? '0 4px 16px rgba(37, 99, 235, 0.14)' : '0 1px 3px rgba(15, 23, 42, 0.03)',
+                        transform: isSelected ? 'translateY(-2px)' : 'none',
+                        transition: 'all 0.18s ease',
                         textAlign: 'center'
                       }}
                     >
                       <div className="mono" style={{ fontSize: '0.68rem', color: isSelected ? '#2563EB' : '#64748B', fontWeight: 700 }}>
                         STAGE 0{stage.id}
                       </div>
-                      <div style={{ fontSize: '0.82rem', fontWeight: 700, color: isSelected ? '#1D4ED8' : '#0F172A', marginTop: '3px' }}>
+                      <div style={{ fontSize: '0.84rem', fontWeight: 700, color: isSelected ? '#1D4ED8' : '#0F172A', marginTop: '4px' }}>
                         {stage.code}
                       </div>
-                      <div className="mono" style={{ fontSize: '0.68rem', color: '#64748B', marginTop: '2px' }}>
+                      <div className="mono" style={{ fontSize: '0.68rem', color: '#64748B', marginTop: '3px' }}>
                         {stage.dept}
                       </div>
                     </div>

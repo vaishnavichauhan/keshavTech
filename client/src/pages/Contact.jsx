@@ -5,12 +5,13 @@ import {
   MapPin, 
   CheckCircle2, 
   ShieldCheck, 
-  Send, 
-  Clock, 
+  Send,
+  Sparkles,
   HelpCircle,
-  Building,
-  Layers,
-  ArrowRight
+  Building2,
+  ChevronDown,
+  ChevronUp,
+  Clock
 } from 'lucide-react';
 
 export default function Contact() {
@@ -29,6 +30,15 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [leadId, setLeadId] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
+  const [expandedFaq, setExpandedFaq] = useState(0);
+
+  const availableModules = [
+    'SteelCore PEB ERP',
+    'Tekla Revision Sync',
+    'CoilTrack Slitting Suite',
+    'ErectSync Mobile PWA',
+    'EPC Client Portal'
+  ];
 
   const toggleModule = (moduleName) => {
     setFormData(prev => {
@@ -89,295 +99,368 @@ export default function Contact() {
   ];
 
   return (
-    <div style={{ paddingTop: '110px', minHeight: '100vh', backgroundColor: '#F8FAFC' }}>
-      {/* Header Banner */}
-      <section style={{ padding: '45px 0 60px', backgroundColor: '#FFFFFF', borderBottom: '1px solid #E2E8F0' }}>
-        <div className="container" style={{ textAlign: 'center', maxWidth: '860px' }}>
-          <div className="badge-tech badge-amber" style={{ marginBottom: '14px' }}>
+    <div style={{ paddingTop: '86px', minHeight: '100vh', backgroundColor: '#F8FAFC' }}>
+      {/* Header Banner (Zoho ERP Style) */}
+      <section style={{ padding: '70px 0 60px', backgroundColor: '#FFFFFF', borderBottom: '1px solid #E2E8F0' }}>
+        <div className="container" style={{ textAlign: 'center', maxWidth: '880px' }}>
+          <div className="section-label" style={{ marginBottom: '16px' }}>
+            <Sparkles size={14} color="#2563EB" />
             <span>DIRECT INDUSTRIAL ENGAGEMENT</span>
           </div>
-          <h1 className="heading-font" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 800, color: '#0F172A', marginBottom: '16px' }}>
+          <h1 
+            className="heading-font" 
+            style={{ 
+              fontSize: 'clamp(2.3rem, 4vw, 3.4rem)', 
+              fontWeight: 800, 
+              color: '#0F172A', 
+              marginBottom: '18px',
+              lineHeight: 1.15,
+              letterSpacing: '-0.025em'
+            }}
+          >
             Schedule a Technical Plant Assessment
           </h1>
-          <p style={{ color: '#475569', fontSize: '1.05rem', lineHeight: 1.6 }}>
+          <p style={{ color: '#475569', fontSize: '1.08rem', lineHeight: 1.7, maxWidth: '740px', margin: '0 auto' }}>
             Speak directly with an industrial solutions architect. We assess your shop-floor bottlenecks, 
-            Tekla drawing revision workflows, and coil scrap rates.
+            Tekla drawing revision workflows, and coil scrap rates during a tailored 45-minute technical review.
           </p>
         </div>
       </section>
 
-      {/* Main Grid: Form + Contact Info */}
-      <section style={{ padding: '60px 0 90px', backgroundColor: '#F8FAFC' }}>
+      {/* Main Grid: Form + Contact Info (Zoho ERP Card Style) */}
+      <section style={{ padding: '75px 0 95px', backgroundColor: '#F8FAFC' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '40px', maxWidth: '1120px', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '48px', maxWidth: '1180px', margin: '0 auto' }}>
             {/* Left: Contact Info & Hub Locations */}
             <div>
-              <h2 className="heading-font" style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0F172A', marginBottom: '16px' }}>
-                Engineering Labs & Offices
+              <div className="section-label" style={{ marginBottom: '14px' }}>
+                <Building2 size={14} color="#2563EB" />
+                <span>OFFICE HUBS &amp; LABS</span>
+              </div>
+              <h2 className="heading-font" style={{ fontSize: '1.85rem', fontWeight: 800, color: '#0F172A', marginBottom: '16px', lineHeight: 1.25 }}>
+                Engineering Labs &amp; Industrial Corridors
               </h2>
-              <p style={{ color: '#475569', fontSize: '0.94rem', lineHeight: 1.6, marginBottom: '28px' }}>
-                Headquartered in Gujarat's heavy industrial corridor, serving Pre-Engineered Building fabricators and infrastructure clients across India.
+              <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: 1.7, marginBottom: '32px' }}>
+                Headquartered in Gujarat's heavy industrial manufacturing belt, deploying dedicated software for structural steel and PEB facilities across India.
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '36px' }}>
-                <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
-                  <div style={{ width: '42px', height: '42px', borderRadius: '10px', backgroundColor: '#EFF6FF', border: '1px solid #BFDBFE', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <MapPin size={22} color="#2563EB" />
+                {/* Hub 1: Location */}
+                <div 
+                  className="card zoho-card-lift"
+                  style={{ 
+                    display: 'flex', 
+                    gap: '16px', 
+                    alignItems: 'flex-start',
+                    backgroundColor: '#FFFFFF',
+                    border: '1.5px solid #E2E8F0',
+                    borderRadius: '16px',
+                    padding: '24px',
+                    boxShadow: '0 4px 14px rgba(15, 23, 42, 0.03)'
+                  }}
+                >
+                  <div style={{ width: '46px', height: '46px', borderRadius: '12px', background: 'linear-gradient(135deg, #1E40AF, #2563EB)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 4px 12px rgba(37, 99, 235, 0.25)' }}>
+                    <MapPin size={22} color="#FFFFFF" />
                   </div>
                   <div>
-                    <div style={{ color: '#0F172A', fontWeight: 700, fontSize: '0.98rem' }}>Western Industrial Corridor Hub</div>
-                    <div style={{ color: '#475569', fontSize: '0.88rem', marginTop: '3px', lineHeight: 1.5 }}>
+                    <div style={{ color: '#0F172A', fontWeight: 800, fontSize: '1.05rem' }}>Western Industrial Corridor Hub</div>
+                    <div style={{ color: '#475569', fontSize: '0.9rem', marginTop: '6px', lineHeight: 1.6 }}>
                       Surat &bull; Valsad &bull; Ahmedabad Engineering Labs<br />
-                      Covering GIDC Heavy Industrial Belts
+                      Covering GIDC Heavy Industrial Belts &amp; Maharashtra
                     </div>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
-                  <div style={{ width: '42px', height: '42px', borderRadius: '10px', backgroundColor: '#ECFDF5', border: '1px solid #A7F3D0', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <Phone size={22} color="#059669" />
+                {/* Hub 2: Phone */}
+                <div 
+                  className="card zoho-card-lift"
+                  style={{ 
+                    display: 'flex', 
+                    gap: '16px', 
+                    alignItems: 'flex-start',
+                    backgroundColor: '#FFFFFF',
+                    border: '1.5px solid #E2E8F0',
+                    borderRadius: '16px',
+                    padding: '24px',
+                    boxShadow: '0 4px 14px rgba(15, 23, 42, 0.03)'
+                  }}
+                >
+                  <div style={{ width: '46px', height: '46px', borderRadius: '12px', background: 'linear-gradient(135deg, #047857, #10B981)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 4px 12px rgba(16, 185, 129, 0.25)' }}>
+                    <Phone size={22} color="#FFFFFF" />
                   </div>
                   <div>
-                    <div style={{ color: '#0F172A', fontWeight: 700, fontSize: '0.98rem' }}>Direct Line & WhatsApp</div>
-                    <div className="mono" style={{ color: '#2563EB', fontSize: '0.95rem', fontWeight: 700, marginTop: '3px' }}>
+                    <div style={{ color: '#0F172A', fontWeight: 800, fontSize: '1.05rem' }}>Direct Line &amp; WhatsApp</div>
+                    <div className="mono" style={{ color: '#2563EB', fontSize: '1.02rem', fontWeight: 800, marginTop: '6px' }}>
                       +91 98250 88214 &bull; +91 94280 11920
                     </div>
-                    <div style={{ color: '#64748B', fontSize: '0.8rem', marginTop: '2px' }}>Mon &ndash; Sat, 9:00 AM &ndash; 7:30 PM IST</div>
+                    <div style={{ color: '#64748B', fontSize: '0.82rem', marginTop: '4px' }}>
+                      Direct access to senior industrial software architects
+                    </div>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
-                  <div style={{ width: '42px', height: '42px', borderRadius: '10px', backgroundColor: '#FFFBEB', border: '1px solid #FDE68A', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <Mail size={22} color="#D97706" />
+                {/* Hub 3: Email */}
+                <div 
+                  className="card zoho-card-lift"
+                  style={{ 
+                    display: 'flex', 
+                    gap: '16px', 
+                    alignItems: 'flex-start',
+                    backgroundColor: '#FFFFFF',
+                    border: '1.5px solid #E2E8F0',
+                    borderRadius: '16px',
+                    padding: '24px',
+                    boxShadow: '0 4px 14px rgba(15, 23, 42, 0.03)'
+                  }}
+                >
+                  <div style={{ width: '46px', height: '46px', borderRadius: '12px', background: 'linear-gradient(135deg, #D97706, #F59E0B)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 4px 12px rgba(245, 158, 11, 0.25)' }}>
+                    <Mail size={22} color="#FFFFFF" />
                   </div>
                   <div>
-                    <div style={{ color: '#0F172A', fontWeight: 700, fontSize: '0.98rem' }}>Official Technical Correspondence</div>
-                    <div className="mono" style={{ color: '#D97706', fontSize: '0.95rem', fontWeight: 700, marginTop: '3px' }}>
-                      engineering@keshavinfo.com
+                    <div style={{ color: '#0F172A', fontWeight: 800, fontSize: '1.05rem' }}>Technical Inquiries</div>
+                    <div className="mono" style={{ color: '#2563EB', fontSize: '0.96rem', fontWeight: 700, marginTop: '6px' }}>
+                      solutions@keshavinfo.com
                     </div>
-                    <div style={{ color: '#64748B', fontSize: '0.8rem', marginTop: '2px' }}>Technical responses within 4 business hours</div>
+                    <div style={{ color: '#64748B', fontSize: '0.82rem', marginTop: '4px' }}>
+                      Confidential plant inquiries &amp; NDA requests
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Plant Standards */}
-              <div style={{ backgroundColor: '#FFFFFF', borderRadius: '14px', border: '1px solid #E2E8F0', padding: '24px', boxShadow: 'var(--shadow-card)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#059669', fontWeight: 700, fontSize: '0.88rem', marginBottom: '8px' }}>
-                  <ShieldCheck size={20} />
-                  <span>NON-DISCLOSURE GUARANTEED</span>
+              {/* Response Time Guarantee Pill */}
+              <div 
+                style={{
+                  padding: '20px',
+                  borderRadius: '14px',
+                  backgroundColor: '#EFF6FF',
+                  border: '1.5px solid #BFDBFE',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '14px'
+                }}
+              >
+                <Clock size={24} color="#2563EB" />
+                <div>
+                  <div style={{ color: '#1E3A8A', fontWeight: 700, fontSize: '0.92rem' }}>
+                    Rapid Response Commitment
+                  </div>
+                  <div style={{ color: '#334155', fontSize: '0.84rem', marginTop: '2px' }}>
+                    All technical audit inquiries reviewed by engineering architects within 2 business hours.
+                  </div>
                 </div>
-                <p style={{ color: '#475569', fontSize: '0.86rem', lineHeight: 1.6, margin: 0 }}>
-                  We routinely execute formal Mutual NDAs before conducting shop audits. Your detailing practices and fabrication pricing remain strictly proprietary.
-                </p>
               </div>
             </div>
 
-            {/* Right: Interactive Form */}
+            {/* Right: Technical Audit Request Form */}
             <div 
+              className="card zoho-card-lift"
               style={{
                 backgroundColor: '#FFFFFF',
-                borderRadius: '16px',
-                border: '1px solid #E2E8F0',
-                padding: '36px',
-                boxShadow: 'var(--shadow-card)'
+                borderRadius: '20px',
+                border: '1.5px solid #E2E8F0',
+                padding: '40px',
+                boxShadow: '0 10px 30px rgba(15, 23, 42, 0.04)'
               }}
             >
-              <h3 className="heading-font" style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0F172A', marginBottom: '6px' }}>
-                Book Plant Technical Walkthrough
-              </h3>
-              <p style={{ color: '#475569', fontSize: '0.88rem', marginBottom: '24px' }}>
-                Fill out the parameters below to schedule a walkthrough with an industrial architect.
-              </p>
-
               {submitted ? (
-                <div style={{ textAlign: 'center', padding: '36px 12px' }}>
-                  <div style={{ width: '56px', height: '56px', borderRadius: '50%', backgroundColor: '#ECFDF5', border: '1px solid #A7F3D0', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
-                    <CheckCircle2 size={32} color="#059669" />
+                <div style={{ textAlign: 'center', padding: '40px 20px' }}>
+                  <div style={{ width: '64px', height: '64px', borderRadius: '50%', backgroundColor: '#ECFDF5', border: '2px solid #10B981', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                    <CheckCircle2 size={36} color="#059669" />
                   </div>
-                  <h4 className="heading-font" style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
-                    Consultation Confirmed
-                  </h4>
-                  <p style={{ color: '#475569', fontSize: '0.94rem', maxWidth: '420px', margin: '0 auto 16px', lineHeight: 1.6 }}>
-                    Thank you, <strong>{formData.contactPerson}</strong>. Our industrial systems architect will reach out within 4 business hours to evaluate <strong>{formData.companyName}</strong>'s requirements.
-                  </p>
-                  <div className="mono" style={{ padding: '8px 14px', backgroundColor: '#EFF6FF', border: '1px solid #BFDBFE', borderRadius: '6px', display: 'inline-block', fontSize: '0.84rem', color: '#1D4ED8', fontWeight: 700, marginBottom: '24px' }}>
+                  <h3 className="heading-font" style={{ fontSize: '1.65rem', fontWeight: 800, color: '#0F172A', marginBottom: '10px' }}>
+                    Plant Assessment Scheduled
+                  </h3>
+                  <div className="mono" style={{ color: '#2563EB', fontWeight: 700, fontSize: '0.92rem', marginBottom: '16px' }}>
                     Reference ID: {leadId}
                   </div>
-                  <div>
-                    <button
-                      onClick={() => setSubmitted(false)}
-                      className="btn btn-secondary"
-                      style={{ fontSize: '0.88rem' }}
-                    >
-                      Submit Another Inquiry
-                    </button>
-                  </div>
+                  <p style={{ color: '#475569', fontSize: '0.94rem', lineHeight: 1.7, maxWidth: '440px', margin: '0 auto 28px' }}>
+                    Our industrial software systems architect will review your monthly tonnage and Tekla workflow, and contact you via phone within 2 hours.
+                  </p>
+                  <button 
+                    onClick={() => { setSubmitted(false); }}
+                    className="btn btn-secondary"
+                    style={{ padding: '12px 24px', fontSize: '0.9rem' }}
+                  >
+                    Submit Another Inquiry
+                  </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                  <div>
+                    <h3 className="heading-font" style={{ fontSize: '1.45rem', fontWeight: 800, color: '#0F172A', marginBottom: '6px' }}>
+                      Request Technical Plant Assessment
+                    </h3>
+                    <p style={{ color: '#64748B', fontSize: '0.88rem', margin: 0 }}>
+                      Fill in your plant details for a tailored 45-minute architectural walkthrough.
+                    </p>
+                  </div>
+
                   {errorMsg && (
-                    <div style={{ padding: '10px 14px', backgroundColor: '#FEF2F2', border: '1px solid #FEE2E2', borderRadius: '6px', color: '#991B1B', fontSize: '0.88rem' }}>
+                    <div style={{ padding: '12px 16px', borderRadius: '8px', backgroundColor: '#FEF2F2', border: '1px solid #FECACA', color: '#DC2626', fontSize: '0.86rem' }}>
                       {errorMsg}
                     </div>
                   )}
 
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px' }}>
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.84rem', color: '#334155', marginBottom: '6px', fontWeight: 600 }}>
-                        Plant / Enterprise Name *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Apex Structural Steel"
-                        value={formData.companyName}
-                        onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                        className="input-control"
-                      />
-                    </div>
-
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.84rem', color: '#334155', marginBottom: '6px', fontWeight: 600 }}>
-                        Contact Person & Title *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Rajesh Patel, MD"
-                        value={formData.contactPerson}
-                        onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })}
-                        className="input-control"
-                      />
-                    </div>
-                  </div>
-
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px' }}>
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.84rem', color: '#334155', marginBottom: '6px', fontWeight: 600 }}>
-                        Phone / WhatsApp *
-                      </label>
-                      <input
-                        type="tel"
-                        required
-                        placeholder="+91 98250 11223"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="input-control mono"
-                      />
-                    </div>
-
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.84rem', color: '#334155', marginBottom: '6px', fontWeight: 600 }}>
-                        Corporate Email *
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        placeholder="director@apexsteel.com"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="input-control"
-                      />
-                    </div>
-                  </div>
-
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px' }}>
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.84rem', color: '#334155', marginBottom: '6px', fontWeight: 600 }}>
-                        Plant Location / Industrial Zone
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="e.g. Valsad / Surat GIDC / Pune"
-                        value={formData.plantLocation}
-                        onChange={(e) => setFormData({ ...formData, plantLocation: e.target.value })}
-                        className="input-control"
-                      />
-                    </div>
-
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.84rem', color: '#334155', marginBottom: '6px', fontWeight: 600 }}>
-                        Monthly Fabrication Capacity
-                      </label>
-                      <select
-                        value={formData.monthlyTonnage}
-                        onChange={(e) => setFormData({ ...formData, monthlyTonnage: e.target.value })}
-                        className="input-control"
-                      >
-                        <option value="Under 300 MT/month">Under 300 MT / month</option>
-                        <option value="300 - 800 MT/month">300 - 800 MT / month</option>
-                        <option value="800 - 1,500 MT/month">800 - 1,500 MT / month</option>
-                        <option value="1,500+ MT/month (Heavy Enterprise)">1,500+ MT / month (Heavy Enterprise)</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Modules Selection */}
+                  {/* Modules Multi-Select */}
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.84rem', color: '#334155', marginBottom: '8px', fontWeight: 600 }}>
-                      Systems & Modules of Interest
+                    <label style={{ fontSize: '0.86rem', color: '#334155', fontWeight: 700, display: 'block', marginBottom: '10px' }}>
+                      Modules of Interest (Select all that apply)
                     </label>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '8px' }}>
-                      {[
-                        'SteelCore PEB ERP',
-                        'Tekla Revision Sync',
-                        'Coil Slitting Yield',
-                        'Sequence Dispatch App',
-                        'EPC Client Portal'
-                      ].map((mod) => {
-                        const checked = formData.selectedModules.includes(mod);
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                      {availableModules.map(m => {
+                        const isSelected = formData.selectedModules.includes(m);
                         return (
-                          <div
-                            key={mod}
-                            onClick={() => toggleModule(mod)}
+                          <button
+                            type="button"
+                            key={m}
+                            onClick={() => toggleModule(m)}
                             style={{
-                              padding: '8px 12px',
+                              padding: '8px 14px',
                               borderRadius: '8px',
+                              fontSize: '0.8rem',
+                              fontFamily: 'var(--font-heading)',
+                              fontWeight: isSelected ? 700 : 500,
                               cursor: 'pointer',
-                              backgroundColor: checked ? '#EFF6FF' : '#F8FAFC',
-                              border: checked ? '1px solid #2563EB' : '1px solid #CBD5E1',
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: '8px',
-                              fontSize: '0.82rem',
-                              fontWeight: checked ? 700 : 500,
-                              color: checked ? '#1D4ED8' : '#475569',
+                              border: isSelected ? '1.5px solid #2563EB' : '1px solid #CBD5E1',
+                              backgroundColor: isSelected ? '#EFF6FF' : '#FFFFFF',
+                              color: isSelected ? '#1D4ED8' : '#475569',
                               transition: 'all 0.15s ease'
                             }}
                           >
-                            <div style={{ width: '15px', height: '15px', borderRadius: '4px', border: checked ? 'none' : '1px solid #94A3B8', backgroundColor: checked ? '#2563EB' : '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                              {checked && <CheckCircle2 size={13} color="#FFFFFF" />}
-                            </div>
-                            <span>{mod}</span>
-                          </div>
+                            {isSelected ? '✓ ' : '+ '}{m}
+                          </button>
                         );
                       })}
                     </div>
                   </div>
 
+                  {/* Company & Person */}
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+                    <div>
+                      <label style={{ fontSize: '0.84rem', color: '#334155', fontWeight: 600, display: 'block', marginBottom: '6px' }}>
+                        Company / Fabrication Plant *
+                      </label>
+                      <input 
+                        type="text" 
+                        required
+                        className="input-control"
+                        placeholder="e.g. Apex Structural Steel Pvt Ltd"
+                        value={formData.companyName}
+                        onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                      />
+                    </div>
+                    <div>
+                      <label style={{ fontSize: '0.84rem', color: '#334155', fontWeight: 600, display: 'block', marginBottom: '6px' }}>
+                        Contact Person &amp; Role *
+                      </label>
+                      <input 
+                        type="text" 
+                        required
+                        className="input-control"
+                        placeholder="e.g. Rajesh Shah (Plant Director)"
+                        value={formData.contactPerson}
+                        onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Phone & Email */}
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+                    <div>
+                      <label style={{ fontSize: '0.84rem', color: '#334155', fontWeight: 600, display: 'block', marginBottom: '6px' }}>
+                        Direct Mobile / WhatsApp *
+                      </label>
+                      <input 
+                        type="tel" 
+                        required
+                        className="input-control"
+                        placeholder="+91 98XXX XXXXX"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      />
+                    </div>
+                    <div>
+                      <label style={{ fontSize: '0.84rem', color: '#334155', fontWeight: 600, display: 'block', marginBottom: '6px' }}>
+                        Corporate Email *
+                      </label>
+                      <input 
+                        type="email" 
+                        required
+                        className="input-control"
+                        placeholder="director@plant.com"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Plant Location & Monthly Tonnage */}
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+                    <div>
+                      <label style={{ fontSize: '0.84rem', color: '#334155', fontWeight: 600, display: 'block', marginBottom: '6px' }}>
+                        Plant City / Industrial Zone *
+                      </label>
+                      <input 
+                        type="text" 
+                        required
+                        className="input-control"
+                        placeholder="e.g. Hazira, Surat / Sanand, Ahmedabad"
+                        value={formData.plantLocation}
+                        onChange={(e) => setFormData({ ...formData, plantLocation: e.target.value })}
+                      />
+                    </div>
+                    <div>
+                      <label style={{ fontSize: '0.84rem', color: '#334155', fontWeight: 600, display: 'block', marginBottom: '6px' }}>
+                        Current Monthly Tonnage
+                      </label>
+                      <select 
+                        className="input-control"
+                        value={formData.monthlyTonnage}
+                        onChange={(e) => setFormData({ ...formData, monthlyTonnage: e.target.value })}
+                      >
+                        <option value="Under 300 MT/month">Under 300 MT / month</option>
+                        <option value="300 - 800 MT/month">300 - 800 MT / month</option>
+                        <option value="800 - 1,500 MT/month">800 - 1,500 MT / month</option>
+                        <option value="1,500+ MT/month">1,500+ MT / month (Heavy Structural)</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Message */}
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.84rem', color: '#334155', marginBottom: '6px', fontWeight: 600 }}>
-                      Current Shop Bottlenecks or Project Details
+                    <label style={{ fontSize: '0.84rem', color: '#334155', fontWeight: 600, display: 'block', marginBottom: '6px' }}>
+                      Key Shop-Floor Bottlenecks (Optional)
                     </label>
-                    <textarea
-                      rows="3"
-                      placeholder="e.g. Plate nesting scrap, contractor billing overcharge, Tekla revision mismatches..."
+                    <textarea 
+                      rows={3}
+                      className="input-control"
+                      placeholder="e.g. Tekla drawing revision chaos, contractor duplicate billing, purlin slitting scrap..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="input-control"
-                      style={{ resize: 'vertical' }}
                     />
                   </div>
 
-                  <button
-                    type="submit"
+                  <button 
+                    type="submit" 
                     disabled={loading}
                     className="btn btn-primary"
-                    style={{ width: '100%', padding: '13px', fontSize: '0.96rem', fontWeight: 700 }}
+                    style={{ width: '100%', padding: '14px', fontSize: '0.96rem', fontWeight: 700 }}
                   >
-                    {loading ? 'Submitting...' : 'Confirm Technical Assessment Request'}
-                    <Send size={16} />
+                    {loading ? (
+                      <span>Scheduling Assessment...</span>
+                    ) : (
+                      <>
+                        <Send size={16} />
+                        <span>Schedule Technical Plant Assessment</span>
+                      </>
+                    )}
                   </button>
+
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontSize: '0.78rem', color: '#64748B', marginTop: '4px' }}>
+                    <ShieldCheck size={14} color="#059669" />
+                    <span>Strict NDA Guarantee: Plant drawings &amp; financial metrics remain 100% confidential.</span>
+                  </div>
                 </form>
               )}
             </div>
@@ -385,24 +468,98 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Industrial FAQ Section */}
-      <section style={{ padding: '75px 0 95px', backgroundColor: '#FFFFFF', borderTop: '1px solid #E2E8F0' }}>
-        <div className="container" style={{ maxWidth: '960px' }}>
-          <h2 className="heading-font" style={{ fontSize: '1.7rem', fontWeight: 800, color: '#0F172A', marginBottom: '32px', textAlign: 'center' }}>
-            Frequently Asked Technical Questions
-          </h2>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-            {faqs.map((f, idx) => (
-              <div key={idx} className="card" style={{ backgroundColor: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '12px', padding: '26px', boxShadow: 'var(--shadow-card)' }}>
-                <h3 className="heading-font" style={{ fontSize: '1.1rem', fontWeight: 700, color: '#1D4ED8', marginBottom: '10px' }}>
-                  {f.q}
-                </h3>
-                <p style={{ color: '#475569', fontSize: '0.9rem', lineHeight: 1.6, margin: 0 }}>
-                  {f.a}
-                </p>
+      {/* Interactive FAQ Section (Zoho ERP Style) */}
+      <section style={{ padding: '85px 0', backgroundColor: '#FFFFFF', borderTop: '1px solid #E2E8F0' }}>
+        <div className="container">
+          <div style={{ maxWidth: '880px', margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+              <div className="section-label" style={{ marginBottom: '14px' }}>
+                <HelpCircle size={14} color="#2563EB" />
+                <span>COMMONLY ASKED QUESTIONS</span>
               </div>
-            ))}
+              <h2 className="heading-font" style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.5rem)', fontWeight: 800, color: '#0F172A', margin: 0, letterSpacing: '-0.02em' }}>
+                Frequently Asked Plant Questions
+              </h2>
+              <p style={{ color: '#64748B', fontSize: '1rem', marginTop: '10px' }}>
+                Everything plant directors need to know about modernizing their fabrication floor
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              {faqs.map((faq, idx) => {
+                const isOpen = expandedFaq === idx;
+                return (
+                  <div 
+                    key={idx}
+                    style={{
+                      backgroundColor: '#FFFFFF',
+                      borderRadius: '14px',
+                      border: isOpen ? '1.5px solid #2563EB' : '1.5px solid #E2E8F0',
+                      overflow: 'hidden',
+                      transition: 'all 0.2s ease',
+                      boxShadow: isOpen ? '0 6px 18px rgba(37, 99, 235, 0.08)' : '0 1px 3px rgba(15, 23, 42, 0.02)'
+                    }}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setExpandedFaq(isOpen ? null : idx)}
+                      style={{
+                        width: '100%',
+                        padding: '20px 24px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        textAlign: 'left',
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      <span className="heading-font" style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0F172A' }}>
+                        {faq.q}
+                      </span>
+                      {isOpen ? <ChevronUp size={20} color="#2563EB" /> : <ChevronDown size={20} color="#64748B" />}
+                    </button>
+                    {isOpen && (
+                      <div style={{ padding: '0 24px 22px', borderTop: '1px solid #F1F5F9' }}>
+                        <p style={{ color: '#475569', fontSize: '0.92rem', lineHeight: 1.7, margin: '14px 0 0' }}>
+                          {faq.a}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Zoho Dark CTA Banner */}
+      <section style={{ padding: '85px 0', backgroundColor: '#F8FAFC' }}>
+        <div className="container">
+          <div className="zoho-cta-banner">
+            <div style={{ maxWidth: '780px', position: 'relative', zIndex: 2 }}>
+              <div className="section-label" style={{ backgroundColor: 'rgba(255,255,255,0.1)', borderColor: 'rgba(255,255,255,0.2)', marginBottom: '16px' }}>
+                <span style={{ color: '#93C5FD' }}>DIRECT PLANT VISIT</span>
+              </div>
+              <h3 className="heading-font" style={{ fontSize: 'clamp(2rem, 3.8vw, 2.8rem)', fontWeight: 800, color: '#FFFFFF', marginBottom: '16px', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
+                Prefer an On-Site Plant Visit?
+              </h3>
+              <p style={{ color: '#94A3B8', fontSize: '1.05rem', lineHeight: 1.7, marginBottom: '32px' }}>
+                Our systems engineering architects regularly visit client manufacturing facilities in Gujarat, Maharashtra, and across India to conduct live shop-floor audits.
+              </p>
+              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                <a 
+                  href="tel:+919825088214"
+                  className="btn btn-primary"
+                  style={{ padding: '14px 32px', fontSize: '0.98rem', fontWeight: 700 }}
+                >
+                  <Phone size={16} />
+                  <span>Call Directly: +91 98250 88214</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

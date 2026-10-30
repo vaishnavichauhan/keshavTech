@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { 
-  Layers, 
   Menu, 
-  X, 
-  ChevronRight
+  X
 } from 'lucide-react';
 import BrandLogo from './BrandLogo';
 
@@ -15,7 +13,7 @@ export default function Navbar({ onOpenConsultation }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 15);
+      setScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -44,34 +42,41 @@ export default function Navbar({ onOpenConsultation }) {
         left: 0,
         right: 0,
         zIndex: 100,
-        transition: 'all 0.25s ease',
-        backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.88)',
+        transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+        backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.96)' : 'rgba(255, 255, 255, 0.92)',
         backdropFilter: 'blur(16px)',
-        borderBottom: scrolled ? '1px solid #E2E8F0' : '1px solid rgba(226, 232, 240, 0.6)',
-        padding: scrolled ? '12px 0' : '16px 0',
-        boxShadow: scrolled ? '0 2px 10px rgba(15, 23, 42, 0.05)' : 'none'
+        borderBottom: scrolled ? '1px solid #E2E8F0' : '1px solid rgba(226, 232, 240, 0.7)',
+        boxShadow: scrolled ? '0 2px 12px rgba(15, 23, 42, 0.05)' : 'none'
       }}
     >
-      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        {/* Brand Logo */}
+      <div 
+        className="zoho-header-inner"
+        style={{ 
+          paddingTop: scrolled ? '10px' : '16px',
+          paddingBottom: scrolled ? '10px' : '14px',
+          transition: 'all 0.2s ease'
+        }}
+      >
+        {/* Left: Brand Logo (Zoho ERP layout style) */}
         <Link 
           to="/" 
           style={{ 
             display: 'flex', 
             alignItems: 'center', 
             textDecoration: 'none', 
-            color: 'inherit' 
+            color: 'inherit',
+            marginRight: '16px'
           }}
         >
-          <BrandLogo size={38} showText={true} subtitle="PEB SYSTEMS" />
+          <BrandLogo size={36} showText={true} subtitle="PEB SYSTEMS" />
         </Link>
 
-        {/* Desktop Navigation Links */}
+        {/* Center: Modern Clean Navigation Links (Zoho ERP style) */}
         <nav 
           style={{ 
             display: 'none', 
             alignItems: 'center', 
-            gap: '22px' 
+            gap: '6px' 
           }}
           className="desktop-nav"
         >
@@ -79,30 +84,29 @@ export default function Navbar({ onOpenConsultation }) {
             <NavLink
               key={link.name}
               to={link.path}
-              className="nav-link-pill"
+              className="zoho-nav-item"
               style={({ isActive }) => ({
-                color: isActive ? '#2563EB' : '#334155',
+                color: isActive ? '#2563EB' : '#1E293B',
                 textDecoration: 'none',
-                fontSize: '0.86rem',
-                fontWeight: isActive ? 700 : 500,
-                display: 'flex',
+                fontSize: '0.9rem',
+                fontWeight: isActive ? 600 : 500,
+                display: 'inline-flex',
                 alignItems: 'center',
-                gap: '6px',
-                padding: '6px 11px',
+                gap: '5px',
+                padding: '8px 12px',
                 borderRadius: '6px',
-                backgroundColor: isActive ? '#EFF6FF' : 'transparent',
-                border: isActive ? '1px solid #BFDBFE' : '1px solid transparent',
-                transition: 'all 0.18s ease'
+                backgroundColor: isActive ? 'rgba(37, 99, 235, 0.06)' : 'transparent',
+                transition: 'all 0.16s ease'
               })}
             >
-              {link.name}
+              <span>{link.name}</span>
               {link.badge && (
                 <span 
                   className="mono" 
                   style={{ 
                     fontSize: '0.62rem', 
                     padding: '1px 5px', 
-                    borderRadius: '999px', 
+                    borderRadius: '4px', 
                     backgroundColor: '#ECFDF5', 
                     color: '#059669', 
                     border: '1px solid #A7F3D0',
@@ -116,18 +120,26 @@ export default function Navbar({ onOpenConsultation }) {
           ))}
         </nav>
 
-        {/* Right Action Area */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        {/* Right: Primary Action Button (Matching Zoho ERP's clean "Sign up now" blue button) */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginLeft: '16px' }}>
           <button
             onClick={onOpenConsultation}
-            className="btn btn-primary"
+            className="zoho-header-cta"
             style={{ 
-              padding: '8px 18px', 
-              fontSize: '0.86rem' 
+              backgroundColor: '#2563EB',
+              color: '#FFFFFF',
+              border: '1px solid #1D4ED8',
+              borderRadius: '6px',
+              padding: '9px 20px', 
+              fontSize: '0.88rem',
+              fontWeight: 600,
+              fontFamily: 'var(--font-heading)',
+              cursor: 'pointer',
+              boxShadow: '0 1px 3px rgba(37, 99, 235, 0.25)',
+              transition: 'all 0.18s ease'
             }}
           >
             Book Plant Demo
-            <ChevronRight size={15} />
           </button>
 
           {/* Mobile Menu Toggle Button */}
@@ -144,7 +156,7 @@ export default function Navbar({ onOpenConsultation }) {
             }}
             aria-label="Toggle Navigation"
           >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
@@ -159,7 +171,7 @@ export default function Navbar({ onOpenConsultation }) {
             display: 'flex',
             flexDirection: 'column',
             gap: '12px',
-            boxShadow: '0 10px 20px rgba(15, 23, 42, 0.1)'
+            boxShadow: '0 10px 25px rgba(15, 23, 42, 0.08)'
           }}
         >
           {navLinks.map((link) => (
@@ -171,7 +183,7 @@ export default function Navbar({ onOpenConsultation }) {
                 textDecoration: 'none',
                 fontSize: '0.95rem',
                 fontWeight: isActive ? 700 : 500,
-                padding: '8px 0',
+                padding: '10px 0',
                 borderBottom: '1px solid #F1F5F9',
                 display: 'flex',
                 alignItems: 'center',
@@ -184,25 +196,49 @@ export default function Navbar({ onOpenConsultation }) {
               )}
             </NavLink>
           ))}
-          <div style={{ paddingTop: '10px' }}>
+          <div style={{ paddingTop: '12px' }}>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenConsultation();
               }}
-              className="btn btn-amber"
-              style={{ width: '100%', fontSize: '0.9rem' }}
+              style={{
+                width: '100%',
+                backgroundColor: '#2563EB',
+                color: '#FFFFFF',
+                border: 'none',
+                borderRadius: '6px',
+                padding: '12px',
+                fontSize: '0.92rem',
+                fontWeight: 600,
+                cursor: 'pointer'
+              }}
             >
-              Book Plant Demo & Assessment
+              Book Plant Demo
             </button>
           </div>
         </div>
       )}
 
       <style>{`
-        .nav-link-pill:hover {
+        .zoho-header-inner {
+          width: 100%;
+          max-width: 1520px;
+          margin: 0 auto;
+          padding-left: 60px;
+          padding-right: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .zoho-nav-item:hover {
           color: #2563EB !important;
-          background-color: #F8FAFC !important;
+          background-color: rgba(37, 99, 235, 0.05) !important;
+        }
+        .zoho-header-cta:hover {
+          background-color: #1D4ED8 !important;
+          box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35) !important;
+          transform: translateY(-1px);
         }
         @media (min-width: 1040px) {
           .desktop-nav {
@@ -215,6 +251,18 @@ export default function Navbar({ onOpenConsultation }) {
         @media (max-width: 1039px) {
           .mobile-toggle {
             display: block !important;
+          }
+        }
+        @media (max-width: 1280px) {
+          .zoho-header-inner {
+            padding-left: 40px;
+            padding-right: 40px;
+          }
+        }
+        @media (max-width: 768px) {
+          .zoho-header-inner {
+            padding-left: 20px;
+            padding-right: 20px;
           }
         }
       `}</style>

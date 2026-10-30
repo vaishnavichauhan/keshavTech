@@ -393,9 +393,809 @@ input[type=range]::-webkit-slider-thumb {
   background-color: #EFF6FF !important;
 }
 
+/* Zoho ERP Section Labels */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border: 1px solid #E0EBF4;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  margin-bottom: 14px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+}
+
+.section-label span {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 1.8px;
+  font-weight: 700;
+  color: #1E40AF;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+}
+
+.section-label span::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  display: inline-block;
+  background-color: #2563EB;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 0 16px;
   }
 }
+
+/* ==========================================================================
+   ZOHO ERP INSPIRED HERO & HOME UI THEME
+   ========================================================================== */
+
+.zoho-hero-section {
+  position: relative;
+  padding-top: 130px;
+  padding-bottom: 70px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  background-image: 
+    radial-gradient(ellipse 70% 45% at 50% 0%, #FFE9DE 0%, #FFF5EF 35%, rgba(255, 255, 255, 0) 75%);
+}
+
+/* 3D Perspective Blue Wireframe Grid Floor */
+.zoho-grid-floor-wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 400px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  perspective: 750px;
+}
+
+.zoho-grid-floor {
+  position: absolute;
+  left: -40%;
+  right: -40%;
+  bottom: -110px;
+  height: 520px;
+  transform: rotateX(68deg);
+  transform-origin: bottom center;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.42) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.42) 1.5px, transparent 1.5px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 65% 70% at 50% 65%, rgba(0, 0, 0, 0.9) 20%, rgba(0, 0, 0, 0) 80%);
+  -webkit-mask-image: radial-gradient(ellipse 65% 70% at 50% 65%, rgba(0, 0, 0, 0.9) 20%, rgba(0, 0, 0, 0) 80%);
+}
+
+/* Hero Centered Action Buttons (Zoho Style) */
+.btn-zoho-dark {
+  background: #0F172A;
+  color: #FFFFFF;
+  padding: 13px 30px;
+  border-radius: 8px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.25);
+  border: 1px solid #1E293B;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-zoho-dark:hover {
+  background: #1E293B;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.35);
+  color: #FFFFFF;
+}
+
+.btn-zoho-peach {
+  background: #FEECE5;
+  color: #1E293B;
+  padding: 13px 28px;
+  border-radius: 8px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1px solid #FED7AA;
+  box-shadow: 0 2px 6px rgba(251, 146, 60, 0.12);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-zoho-peach:hover {
+  background: #FDE2D6;
+  border-color: #FDBA74;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(251, 146, 60, 0.2);
+  color: #0F172A;
+}
+
+/* 3D Dashboard Showcase Deck */
+.zoho-stage-deck {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 44px;
+  margin-bottom: 50px;
+  perspective: 1200px;
+  z-index: 2;
+}
+
+.zoho-center-card {
+  position: relative;
+  z-index: 10;
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid rgba(203, 213, 225, 0.9);
+  box-shadow: 
+    0 24px 60px -12px rgba(15, 23, 42, 0.18),
+    0 0 0 1px rgba(15, 23, 42, 0.05),
+    0 0 45px rgba(56, 189, 248, 0.18);
+  overflow: hidden;
+  max-width: 860px;
+  width: 100%;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zoho-side-card-left {
+  position: absolute;
+  left: -90px;
+  top: 40px;
+  width: 340px;
+  z-index: 5;
+  transform: perspective(1000px) rotateY(18deg) rotateX(2deg) scale(0.9);
+  transform-origin: right center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.92;
+  cursor: pointer;
+}
+
+.zoho-side-card-left:hover {
+  opacity: 1;
+  transform: perspective(1000px) rotateY(8deg) rotateX(1deg) scale(0.96);
+  z-index: 15;
+}
+
+.zoho-side-card-right {
+  position: absolute;
+  right: -90px;
+  top: 40px;
+  width: 340px;
+  z-index: 5;
+  transform: perspective(1000px) rotateY(-18deg) rotateX(2deg) scale(0.9);
+  transform-origin: left center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.92;
+  cursor: pointer;
+}
+
+.zoho-side-card-right:hover {
+  opacity: 1;
+  transform: perspective(1000px) rotateY(-8deg) rotateX(1deg) scale(0.96);
+  z-index: 15;
+}
+
+@media (max-width: 1220px) {
+  .zoho-side-card-left {
+    left: -30px;
+    width: 290px;
+    transform: perspective(1000px) rotateY(14deg) scale(0.85);
+  }
+  .zoho-side-card-right {
+    right: -30px;
+    width: 290px;
+    transform: perspective(1000px) rotateY(-14deg) scale(0.85);
+  }
+}
+
+@media (max-width: 1040px) {
+  .zoho-side-card-left, .zoho-side-card-right {
+    display: none;
+  }
+}
+
+/* Floating Circular Play Button (Zoho ERP Screenshot Match) */
+.zoho-play-btn {
+  position: absolute;
+  bottom: 24px;
+  right: 28px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #000000;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  z-index: 25;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease;
+}
+
+.zoho-play-btn:hover {
+  transform: scale(1.09);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+  background: #0F172A;
+}
+
+/* View switcher tab pills */
+.zoho-tab-pill {
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Zoho ERP "An ERP unlike any other" Industry Feature Section (Screenshot Match)
+   ========================================================================== */
+.zoho-erp-industry-section {
+  position: relative;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E2E8F0;
+  overflow: hidden;
+}
+
+.zoho-erp-industry-section .container {
+  max-width: 1400px;
+}
+
+/* Top Banner with Blue Wireframe Grid and Fluid White Tab Cutout */
+.zoho-erp-top-banner {
+  position: relative;
+  min-height: 220px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+
+/* Full-width Blue Wireframe Background (shows on the top right) */
+.zoho-erp-banner-blue-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 230px;
+  background: linear-gradient(135deg, #1E6DEB 0%, #2B7DF5 45%, #4EA6F8 100%);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.zoho-erp-grid-mesh {
+  position: absolute;
+  top: -30px;
+  right: -10%;
+  width: 75%;
+  height: 180%;
+  perspective: 550px;
+  transform: rotateX(60deg) rotateZ(-12deg);
+  transform-origin: top center;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.32) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.32) 1.5px, transparent 1.5px);
+  background-size: 38px 38px;
+  mask-image: radial-gradient(ellipse 70% 65% at 65% 35%, rgba(0, 0, 0, 0.95) 20%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 65% at 65% 35%, rgba(0, 0, 0, 0.95) 20%, transparent 85%);
+  pointer-events: none;
+}
+
+/* Fluid SVG White Tab Mask (100% white on left, smooth curve to bottom right) */
+.zoho-erp-tab-svg-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 230px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.zoho-erp-tab-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Banner Content inside the Tab */
+.zoho-erp-banner-content {
+  position: relative;
+  z-index: 3;
+  padding-top: 36px;
+  padding-bottom: 24px;
+}
+
+.zoho-erp-tab-inner {
+  max-width: 780px;
+}
+
+.zoho-erp-title {
+  font-size: clamp(1.85rem, 3.2vw, 2.7rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: #0F172A;
+  margin: 0 0 12px 0;
+}
+
+.zoho-erp-desc {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 700px;
+}
+
+/* 4-Column Minimalist Zoho Layout */
+.zoho-erp-columns-wrap {
+  position: relative;
+  z-index: 3;
+  background: #FFFFFF;
+  border-top: 1px solid #E2E8F0;
+}
+
+.zoho-erp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #FFFFFF;
+}
+
+.zoho-erp-card {
+  padding: 44px 34px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zoho-erp-card:last-child {
+  border-right: none;
+}
+
+.zoho-erp-card:hover {
+  background-color: #FAFCFF;
+}
+
+.zoho-erp-card:hover .zoho-erp-svg-wrap {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.zoho-erp-svg-wrap {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zoho-erp-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.32;
+  color: #0F172A;
+  letter-spacing: -0.015em;
+  margin: 0 0 12px 0;
+}
+
+.zoho-erp-card-desc {
+  color: #475569;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin: 0 0 24px 0;
+  flex: 1;
+}
+
+.zoho-erp-card-stats {
+  font-size: 0.76rem;
+  color: #2563EB;
+  font-weight: 600;
+  border-top: 1px solid #F1F5F9;
+  padding-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* Responsive */
+@media (max-width: 1180px) {
+  .zoho-erp-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .zoho-erp-card:nth-child(2) {
+    border-right: none;
+  }
+  .zoho-erp-card:nth-child(1),
+  .zoho-erp-card:nth-child(2) {
+    border-bottom: 1px solid #E2E8F0;
+  }
+}
+
+@media (max-width: 900px) {
+  .zoho-erp-tab-svg-wrap {
+    display: none;
+  }
+  .zoho-erp-banner-blue-bg {
+    display: none;
+  }
+  .zoho-erp-top-banner {
+    min-height: auto;
+    padding-top: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .zoho-erp-grid {
+    grid-template-columns: 1fr;
+  }
+  .zoho-erp-card {
+    border-right: none !important;
+    border-bottom: 1px solid #E2E8F0;
+    padding: 32px 20px;
+  }
+  .zoho-erp-card:last-child {
+    border-bottom: none;
+  }
+}
+
+/* ==========================================================================
+   EnquiryToErectionLifecycle - Left Pills & Right Content (Screenshot Match)
+   ========================================================================== */
+.lifecycle-stage-pill {
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  border: none;
+  text-align: left;
+}
+
+.lifecycle-stage-pill:hover:not(.active) {
+  transform: translateX(4px);
+  filter: brightness(0.98);
+}
+
+.lifecycle-stage-pill:hover:not(.active) .lifecycle-pill-arrow {
+  transform: translateX(3px);
+}
+
+.lifecycle-stage-pill.active .lifecycle-pill-arrow {
+  transform: translateX(2px);
+}
+
+.lifecycle-pill-arrow {
+  transition: transform 0.2s ease;
+}
+
+@keyframes stageContentFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stage-content-animate {
+  animation: stageContentFadeIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (max-width: 980px) {
+  .lifecycle-layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .lifecycle-stage-pill.active {
+    transform: none !important;
+  }
+  .lifecycle-stage-pill:hover:not(.active) {
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   Zoho ERP Solutions 4-Card Grid (Screenshot Match)
+   ========================================================================== */
+.zoho-solution-card {
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.zoho-solution-card:hover {
+  border-color: #BFDBFE;
+  box-shadow: 0 14px 34px rgba(37, 99, 235, 0.09);
+  transform: translateY(-3px);
+}
+
+.zoho-solution-card:hover .zoho-card-arrow {
+  transform: translateX(5px);
+}
+
+.zoho-card-arrow {
+  transition: transform 0.2s ease;
+}
+
+@media (max-width: 860px) {
+  .zoho-solutions-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Integration Card Hover & Micro-interactions */
+.integration-card-interactive {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.integration-card-interactive:hover {
+  border-color: #BFDBFE !important;
+  box-shadow: 0 14px 34px rgba(37, 99, 235, 0.09) !important;
+  transform: translateY(-4px) !important;
+}
+
+.integration-card-interactive:hover .integration-card-arrow {
+  transform: translateX(4px);
+}
+
+.integration-card-arrow {
+  transition: transform 0.2s ease;
+}
+
+/* Operational Differences Workstation Showcase Image */
+.workstation-operational-img {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.workstation-operational-img:hover {
+  transform: scale(1.025);
+}
+
+/* Footer Interactive Styles */
+.footer-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #475569;
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: all 0.18s ease;
+}
+
+.footer-nav-link:hover {
+  color: #2563EB;
+  transform: translateX(3px);
+}
+
+.footer-nav-link .footer-arrow {
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.18s ease;
+}
+
+.footer-nav-link:hover .footer-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.footer-contact-pill {
+  transition: all 0.18s ease;
+}
+
+.footer-contact-pill:hover {
+  background-color: #EFF6FF !important;
+  border-color: #BFDBFE !important;
+  transform: translateY(-1px);
+}
+
+.footer-sub-link:hover {
+  color: #2563EB !important;
+  text-decoration: underline !important;
+}
+
+/* Zoho ERP Exact Match Footer Styles */
+.zoho-footer-link {
+  color: #4B5563;
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: color 0.15s ease;
+  display: inline-block;
+}
+
+.zoho-footer-link:hover {
+  color: #0F172A;
+  text-decoration: underline;
+}
+
+.zoho-contact-item:hover .zoho-icon-box {
+  border-color: #0F172A !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+.zoho-social-link {
+  transition: all 0.18s ease;
+}
+
+.zoho-social-link:hover {
+  color: #0F172A !important;
+  transform: translateY(-2px);
+}
+
+.zoho-sub-link {
+  color: #4B5563;
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: color 0.15s ease;
+}
+
+.zoho-sub-link:hover {
+  color: #0F172A !important;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .zoho-footer-stat-col {
+    border-right: none !important;
+    border-bottom: 1px solid #E5E7EB;
+    padding-bottom: 16px !important;
+    margin-bottom: 16px;
+  }
+}
+
+/* ==========================================================================
+   ZOHO ERP ENTERPRISE FEATURE CARDS & ALTERNATING SECTIONS
+   ========================================================================== */
+
+.zoho-feature-section {
+  padding: 85px 0;
+  position: relative;
+}
+
+.zoho-card-lift {
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zoho-card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -8px rgba(15, 23, 42, 0.08), 0 4px 14px -2px rgba(37, 99, 235, 0.06);
+  border-color: #BFDBFE !important;
+}
+
+.zoho-img-frame {
+  border-radius: 18px;
+  border: 1.5px solid #CBD5E1;
+  overflow: hidden;
+  box-shadow: 0 16px 40px -8px rgba(15, 23, 42, 0.12);
+  background-color: #0F172A;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zoho-img-frame:hover {
+  box-shadow: 0 24px 50px -10px rgba(37, 99, 235, 0.18);
+}
+
+.zoho-img-frame:hover .zoho-img-zoom {
+  transform: scale(1.025);
+}
+
+.zoho-img-zoom {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zoho-icon-badge {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.zoho-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.zoho-check-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #059669;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.zoho-cta-banner {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  border-radius: 20px;
+  padding: 56px 48px;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #334155;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.2);
+}
+
+.zoho-cta-banner::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .zoho-cta-banner {
+    padding: 36px 24px;
+  }
+}
+
+/* Footer Container - Reduced Left & Right Padding / Wider Span */
+.footer-container {
+  max-width: 1440px !important;
+  padding-left: 18px !important;
+  padding-right: 18px !important;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
+
+
+
+
+
+
+
 
